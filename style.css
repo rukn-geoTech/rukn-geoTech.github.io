@@ -130,6 +130,35 @@ img {
   width: 100%;
 }
 
+/* 语言切换按钮 */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 34px;
+  padding: 0 14px;
+  margin-left: 8px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.lang-switcher:hover {
+  border-color: var(--highlight);
+  color: var(--highlight);
+  background: var(--highlight-dim);
+}
+.lang-switcher:active {
+  transform: scale(0.95);
+}
+
 /* 移动端菜单按钮 */
 .nav-toggle {
   display: none;
@@ -717,6 +746,10 @@ img {
     padding: 24px 20px;
     gap: 16px;
     border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open .lang-switcher {
+    margin-left: 0;
+    align-self: flex-start;
   }
   .nav-toggle { display: flex; }
 

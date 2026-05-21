@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="北京基石智勘科技有限公司 - AI驱动智慧能源勘查，地质勘查与能源技术服务专家">
-  <title>基石智勘 | AI驱动 · 智慧能源勘查</title>
+  <title data-i18n="page-title">基石智勘 | AI驱动 · 智慧能源勘查</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,19 +13,18 @@
   <header class="navbar">
     <div class="nav-logo">
       <img src="logo_v1.svg" alt="基石智勘 Logo">
-      <span>基石智勘</span>
+      <span data-i18n="brand-name">基石智勘</span>
     </div>
     <nav class="nav-links">
-      <a href="#hero" class="active">首页</a>
-      <a href="#about">关于我们</a>
-      <a href="#business">核心业务</a>
-      <a href="#advantage">技术优势</a>
-      <a href="#process">服务流程</a>
-      <a href="#contact">联系方式</a>
+      <a href="#hero" class="active" data-i18n="nav-home">首页</a>
+      <a href="#about" data-i18n="nav-about">关于我们</a>
+      <a href="#business" data-i18n="nav-business">核心业务</a>
+      <a href="#advantage" data-i18n="nav-advantage">技术优势</a>
+      <a href="#process" data-i18n="nav-process">服务流程</a>
+      <a href="#contact" data-i18n="nav-contact">联系方式</a>
+      <button class="lang-switcher" id="langSwitcher" aria-label="Switch to English">EN</button>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="菜单">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="navToggle" data-i18n-aria="nav-toggle">菜单</button>
   </header>
 
   <!-- ===== Hero 首页 ===== -->
@@ -35,11 +34,11 @@
     </div>
     <div class="hero-content">
       <img src="logo_v1.svg" alt="基石智勘" class="hero-logo">
-      <h1>基石智勘</h1>
-      <p class="hero-subtitle">AI 驱动 · 智慧能源勘查</p>
+      <h1 data-i18n="hero-title">基石智勘</h1>
+      <p class="hero-subtitle" data-i18n="hero-subtitle">AI 驱动 · 智慧能源勘查</p>
       <div class="hero-buttons">
-        <a href="#business" class="btn btn-primary">了解我们的服务</a>
-        <a href="#contact" class="btn btn-outline">联系我们</a>
+        <a href="#business" class="btn btn-primary" data-i18n="hero-btn-services">了解我们的服务</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero-btn-contact">联系我们</a>
       </div>
     </div>
   </section>
@@ -47,34 +46,33 @@
   <!-- ===== 关于我们 ===== -->
   <section class="section" id="about">
     <div class="section-header reveal">
-      <h2>关于我们</h2>
-      <p>人工智能时代 · 能源资源勘查与评估 · 高效开发技术服务</p>
+      <h2 data-i18n="about-title">关于我们</h2>
+      <p data-i18n="about-subtitle">人工智能时代 · 能源资源勘查与评估 · 高效开发技术服务</p>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <h3>立足智能化升级风口，赋能传统能源提质增效</h3>
-        <p>
+        <h3 data-i18n="about-heading">立足智能化升级风口，赋能传统能源提质增效</h3>
+        <p data-i18n-html="about-p1">
           当前能源行业全面进入数字化、智能化、高效化转型新阶段。传统油气勘探开发模式面临复杂油气藏地质条件隐蔽、数据维度繁杂、人工建模精度有限等行业痛点。随着人工智能与大数据技术的快速迭代，AI 赋能已成为破解复杂油气藏勘探与高效开发难题的核心路径。
         </p>
-        <p>
+        <p data-i18n-html="about-p2">
           基石智勘精准聚焦 <strong>人工智能时代能源资源勘查与评估赛道</strong>，定位为「技术驱动型、场景落地型」高端油气能源技术服务商。核心团队具备海外顶级能源企业一线实战经验，深度联动多所高校科研资源，突破传统地质工程单一技术局限，打通地质专业 × 油藏工程 × 人工智能 × 算法研发技术壁垒，为客户降本、提质、增效。
         </p>
-        <p>
+        <p data-i18n-html="about-p3">
           公司始终秉持 <strong>「技术赋能、精准高效、务实共赢、长期深耕」</strong>的核心服务理念，为油气行业高质量、低成本、精细化发展提供全新解决方案。
         </p>
       </div>
       <div class="about-visual reveal">
-        <!-- 六边形网格可视化装饰 -->
         <div class="hex-grid">
-          <div class="hex-item">AI</div>
-          <div class="hex-item">油田</div>
-          <div class="hex-item">数据</div>
-          <div class="hex-item">地质</div>
-          <div class="hex-item">基石</div>
-          <div class="hex-item">模型</div>
-          <div class="hex-item">算法</div>
-          <div class="hex-item">勘查</div>
-          <div class="hex-item">能源</div>
+          <div class="hex-item" data-i18n="hex-ai">AI</div>
+          <div class="hex-item" data-i18n="hex-oilfield">油田</div>
+          <div class="hex-item" data-i18n="hex-data">数据</div>
+          <div class="hex-item" data-i18n="hex-geology">地质</div>
+          <div class="hex-item" data-i18n="hex-cornerstone">基石</div>
+          <div class="hex-item" data-i18n="hex-model">模型</div>
+          <div class="hex-item" data-i18n="hex-algorithm">算法</div>
+          <div class="hex-item" data-i18n="hex-explore">勘查</div>
+          <div class="hex-item" data-i18n="hex-energy">能源</div>
         </div>
       </div>
     </div>
@@ -83,45 +81,45 @@
   <!-- ===== 核心业务 ===== -->
   <section class="section" id="business">
     <div class="section-header reveal">
-      <h2>核心业务</h2>
-      <p>覆盖油气勘探开发全流程 · 延伸矿业资源智能评估</p>
+      <h2 data-i18n="business-title">核心业务</h2>
+      <p data-i18n="business-subtitle">覆盖油气勘探开发全流程 · 延伸矿业资源智能评估</p>
     </div>
     <div class="business-grid">
       <!-- 业务1 -->
       <div class="business-card reveal">
         <div class="business-icon">🔍</div>
-        <h3>能源资源智能化勘查</h3>
-        <p>精细化评估与储量分析，运用 AI 技术对复杂油气藏进行精准勘查和资源评估，提升勘探成功率和资源利用率。</p>
+        <h3 data-i18n="biz-1-title">能源资源智能化勘查</h3>
+        <p data-i18n="biz-1-desc">精细化评估与储量分析，运用 AI 技术对复杂油气藏进行精准勘查和资源评估，提升勘探成功率和资源利用率。</p>
       </div>
       <!-- 业务2 -->
       <div class="business-card reveal">
         <div class="business-icon">🧠</div>
-        <h3>地质建模与数模优化</h3>
-        <p>复杂油气藏地质建模、油藏数值模拟、智能算法优化研发，构建高精度三维地质模型，精准预测开发动态。</p>
+        <h3 data-i18n="biz-2-title">地质建模与数模优化</h3>
+        <p data-i18n="biz-2-desc">复杂油气藏地质建模、油藏数值模拟、智能算法优化研发，构建高精度三维地质模型，精准预测开发动态。</p>
       </div>
       <!-- 业务3 -->
       <div class="business-card reveal">
         <div class="business-icon">🤖</div>
-        <h3>地质 AI 应用开发</h3>
-        <p>地质 AI 应用技术开发、油气勘探开发智能化方案定制，将深度学习与地质工程深度融合，打造行业专属 AI 工具。</p>
+        <h3 data-i18n="biz-3-title">地质 AI 应用开发</h3>
+        <p data-i18n="biz-3-desc">地质 AI 应用技术开发、油气勘探开发智能化方案定制，将深度学习与地质工程深度融合，打造行业专属 AI 工具。</p>
       </div>
       <!-- 业务4 -->
       <div class="business-card reveal">
         <div class="business-icon">💻</div>
-        <h3>油田软件开发</h3>
-        <p>油田行业专用小型软件、业务工具定制化开发与迭代升级，轻量化部署，快速响应业务需求。</p>
+        <h3 data-i18n="biz-4-title">油田软件开发</h3>
+        <p data-i18n="biz-4-desc">油田行业专用小型软件、业务工具定制化开发与迭代升级，轻量化部署，快速响应业务需求。</p>
       </div>
       <!-- 业务5 -->
       <div class="business-card reveal">
         <div class="business-icon">📋</div>
-        <h3>技术咨询</h3>
-        <p>油气技术咨询、项目联合研发、产学研技术合作落地，提供全流程技术指导与解决方案。</p>
+        <h3 data-i18n="biz-5-title">技术咨询</h3>
+        <p data-i18n="biz-5-desc">油气技术咨询、项目联合研发、产学研技术合作落地，提供全流程技术指导与解决方案。</p>
       </div>
       <!-- 业务6 -->
       <div class="business-card reveal">
         <div class="business-icon">🤝</div>
-        <h3>产学研合作</h3>
-        <p>深度联动高校科研团队，搭建「科研+实战」复合型技术平台，推动前沿技术成果在油气行业的产业化落地。</p>
+        <h3 data-i18n="biz-6-title">产学研合作</h3>
+        <p data-i18n="biz-6-desc">深度联动高校科研团队，搭建「科研+实战」复合型技术平台，推动前沿技术成果在油气行业的产业化落地。</p>
       </div>
     </div>
   </section>
@@ -129,36 +127,36 @@
   <!-- ===== 技术优势 ===== -->
   <section class="section" id="advantage">
     <div class="section-header reveal">
-      <h2>技术优势</h2>
-      <p>突破单一技术局限 · 实现油气技术与 AI 的深度融合</p>
+      <h2 data-i18n="adv-title">技术优势</h2>
+      <p data-i18n="adv-subtitle">突破单一技术局限 · 实现油气技术与 AI 的深度融合</p>
     </div>
     <div class="advantage-grid">
       <div class="advantage-card reveal">
         <div class="advantage-num">01</div>
         <div class="advantage-content">
-          <h4>一线实战技术优势</h4>
-          <p>核心团队具备海外顶级能源企业一线油气项目实操经验，深耕油气勘探开发、油藏数模、地质建模领域多年，实战落地能力突出。</p>
+          <h4 data-i18n="adv-1-title">一线实战技术优势</h4>
+          <p data-i18n="adv-1-desc">核心团队具备海外顶级能源企业一线油气项目实操经验，深耕油气勘探开发、油藏数模、地质建模领域多年，实战落地能力突出。</p>
         </div>
       </div>
       <div class="advantage-card reveal">
         <div class="advantage-num">02</div>
         <div class="advantage-content">
-          <h4>产学研资源优势</h4>
-          <p>深度联动多所高校地质、油气、算法领域专家团队，汇聚行业资深技术人才，搭建起「科研+实战」复合型技术团队。</p>
+          <h4 data-i18n="adv-2-title">产学研资源优势</h4>
+          <p data-i18n="adv-2-desc">深度联动多所高校地质、油气、算法领域专家团队，汇聚行业资深技术人才，搭建起「科研+实战」复合型技术团队。</p>
         </div>
       </div>
       <div class="advantage-card reveal">
         <div class="advantage-num">03</div>
         <div class="advantage-content">
-          <h4>技术融合优势</h4>
-          <p>打通地质专业 + 油藏工程 + 人工智能 + 算法研发技术壁垒，大幅提升复杂地质条件下油气资源勘查精度与开发效率。</p>
+          <h4 data-i18n="adv-3-title">技术融合优势</h4>
+          <p data-i18n="adv-3-desc">打通地质专业 + 油藏工程 + 人工智能 + 算法研发技术壁垒，大幅提升复杂地质条件下油气资源勘查精度与开发效率。</p>
         </div>
       </div>
       <div class="advantage-card reveal">
         <div class="advantage-num">04</div>
         <div class="advantage-content">
-          <h4>灵活落地优势</h4>
-          <p>既能承接高端科研技术研发、大型油气藏智能优化项目，也可定制开发轻量化油田工具，适配不同客户与场景的差异化需求。</p>
+          <h4 data-i18n="adv-4-title">灵活落地优势</h4>
+          <p data-i18n="adv-4-desc">既能承接高端科研技术研发、大型油气藏智能优化项目，也可定制开发轻量化油田工具，适配不同客户与场景的差异化需求。</p>
         </div>
       </div>
     </div>
@@ -167,34 +165,34 @@
   <!-- ===== 服务流程 ===== -->
   <section class="section" id="process">
     <div class="section-header reveal">
-      <h2>服务流程</h2>
-      <p>从需求沟通到项目交付 · 全流程精细化服务</p>
+      <h2 data-i18n="proc-title">服务流程</h2>
+      <p data-i18n="proc-subtitle">从需求沟通到项目交付 · 全流程精细化服务</p>
     </div>
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="process-dot">1</div>
-        <h4>需求沟通</h4>
-        <p>深入了解客户痛点与技术需求，明确项目目标与范围</p>
+        <h4 data-i18n="proc-1-title">需求沟通</h4>
+        <p data-i18n="proc-1-desc">深入了解客户痛点与技术需求，明确项目目标与范围</p>
       </div>
       <div class="process-step reveal">
         <div class="process-dot">2</div>
-        <h4>方案设计</h4>
-        <p>定制化技术方案设计，结合AI与地质工程制定最优路径</p>
+        <h4 data-i18n="proc-2-title">方案设计</h4>
+        <p data-i18n="proc-2-desc">定制化技术方案设计，结合AI与地质工程制定最优路径</p>
       </div>
       <div class="process-step reveal">
         <div class="process-dot">3</div>
-        <h4>技术研发</h4>
-        <p>模型构建、算法开发、软件定制，分阶段迭代交付</p>
+        <h4 data-i18n="proc-3-title">技术研发</h4>
+        <p data-i18n="proc-3-desc">模型构建、算法开发、软件定制，分阶段迭代交付</p>
       </div>
       <div class="process-step reveal">
         <div class="process-dot">4</div>
-        <h4>测试验证</h4>
-        <p>基于真实数据验证，确保模型精度与方案可行性</p>
+        <h4 data-i18n="proc-4-title">测试验证</h4>
+        <p data-i18n="proc-4-desc">基于真实数据验证，确保模型精度与方案可行性</p>
       </div>
       <div class="process-step reveal">
         <div class="process-dot">5</div>
-        <h4>交付支持</h4>
-        <p>成果交付、培训指导、持续优化与长期技术支持</p>
+        <h4 data-i18n="proc-5-title">交付支持</h4>
+        <p data-i18n="proc-5-desc">成果交付、培训指导、持续优化与长期技术支持</p>
       </div>
     </div>
   </section>
@@ -202,8 +200,8 @@
   <!-- ===== 联系方式 ===== -->
   <section class="section" id="contact">
     <div class="section-header reveal">
-      <h2>联系方式</h2>
-      <p>期待与您的合作 · 共创智慧能源勘查新未来</p>
+      <h2 data-i18n="contact-title">联系方式</h2>
+      <p data-i18n="contact-subtitle">期待与您的合作 · 共创智慧能源勘查新未来</p>
     </div>
     <div class="contact-grid">
       <!-- 联系信息 -->
@@ -211,47 +209,46 @@
         <div class="info-item">
           <div class="info-icon">📍</div>
           <div>
-            <h4>公司地址</h4>
+            <h4 data-i18n="contact-address-label">公司地址</h4>
             <p>北京市密云区西田各庄镇雁密路99号601室</p>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">📞</div>
           <div>
-            <h4>联系电话</h4>
+            <h4 data-i18n="contact-phone-label">联系电话</h4>
             <p>010-65028411</p>
           </div>
         </div>
         <div class="info-item">
           <div class="info-icon">✉️</div>
           <div>
-            <h4>电子邮箱</h4>
+            <h4 data-i18n="contact-email-label">电子邮箱</h4>
             <p><a href="mailto:service@rukn.com">service@rukn.com</a></p>
           </div>
         </div>
 
-        <!-- 项目展示占位 -->
-        <div class="placeholder-img">项目展示 · 复杂油气藏三维地质模型</div>
-        <div class="placeholder-img">项目展示 · AI 驱动油藏数值模拟优化</div>
+        <div class="placeholder-img" data-i18n="placeholder-1">项目展示 · 复杂油气藏三维地质模型</div>
+        <div class="placeholder-img" data-i18n="placeholder-2">项目展示 · AI 驱动油藏数值模拟优化</div>
       </div>
 
       <!-- 联系表单 -->
       <div class="contact-form reveal">
-        <h3>给我们留言</h3>
+        <h3 data-i18n="form-heading">给我们留言</h3>
         <form id="contactForm">
           <div class="form-group">
-            <label for="name">姓名</label>
-            <input type="text" id="name" placeholder="请输入您的姓名" required>
+            <label for="name" data-i18n="form-name">姓名</label>
+            <input type="text" id="name" data-i18n-placeholder="form-name-placeholder" placeholder="请输入您的姓名" required>
           </div>
           <div class="form-group">
-            <label for="email">邮箱</label>
-            <input type="email" id="email" placeholder="请输入您的邮箱" required>
+            <label for="email" data-i18n="form-email">邮箱</label>
+            <input type="email" id="email" data-i18n-placeholder="form-email-placeholder" placeholder="请输入您的邮箱" required>
           </div>
           <div class="form-group">
-            <label for="message">留言内容</label>
-            <textarea id="message" placeholder="请描述您的需求或问题..." required></textarea>
+            <label for="message" data-i18n="form-message">留言内容</label>
+            <textarea id="message" data-i18n-placeholder="form-message-placeholder" placeholder="请描述您的需求或问题..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%">发送留言</button>
+          <button type="submit" class="btn btn-primary" style="width:100%" data-i18n="form-send">发送留言</button>
         </form>
       </div>
     </div>
@@ -262,17 +259,17 @@
     <div class="footer-content">
       <div class="footer-logo">
         <img src="logo_v1.svg" alt="基石智勘">
-        <span>北京基石智勘科技有限公司</span>
+        <span data-i18n="footer-company">北京基石智勘科技有限公司</span>
       </div>
       <div class="footer-info">
-        <p>&copy; 2024-2026 Rukn GeoExplore Technology limited company. All Rights Reserved.</p>
+        <p data-i18n="footer-copyright">&copy; 2024-2026 Rukn GeoExplore Technology limited company. All Rights Reserved.</p>
         <p>京ICP备XXXXXXXX号 | <a href="mailto:service@rukn.com">service@rukn.com</a></p>
       </div>
     </div>
   </footer>
 
   <!-- 返回顶部按钮 -->
-  <button class="back-to-top" id="backToTop" aria-label="返回顶部">↑</button>
+  <button class="back-to-top" id="backToTop" data-i18n-aria="back-to-top">↑</button>
 
   <script src="script.js"></script>
 </body>
