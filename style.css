@@ -323,9 +323,17 @@ img {
 .hero-subtitle {
   font-size: 1.35rem;
   color: var(--text-secondary);
-  margin-bottom: 48px;
+  margin-bottom: 20px;
   font-weight: 300;
   letter-spacing: 0.04em;
+}
+
+.hero-rukn-meaning {
+  font-size: 0.95rem;
+  color: rgba(255, 107, 53, 0.7);
+  margin-bottom: 36px;
+  font-style: italic;
+  letter-spacing: 0.03em;
 }
 .hero-buttons {
   display: flex;

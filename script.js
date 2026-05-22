@@ -23,6 +23,7 @@ const translations = {
     /* Hero */
     "hero-title": "基石智勘",
     "hero-subtitle": "AI 驱动 · 智慧能源勘查",
+    "hero-rukn-meaning": "Rukn（رُكْن），阿拉伯语"基石、支柱"之意，承载我们对能源行业的坚实承诺。",
     "hero-btn-services": "了解我们的服务",
     "hero-btn-contact": "联系我们",
 
@@ -137,6 +138,7 @@ const translations = {
     /* Hero */
     "hero-title": "Rukn GeoExplore",
     "hero-subtitle": "AI-Driven · Smart Energy Exploration",
+    "hero-rukn-meaning": "Rukn (رُكْن) — Arabic for \"pillar\" and \"cornerstone,\" reflecting our steadfast commitment to the energy industry.",
     "hero-btn-services": "Explore Our Services",
     "hero-btn-contact": "Contact Us",
 
