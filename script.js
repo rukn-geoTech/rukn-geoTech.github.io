@@ -92,6 +92,7 @@ const translations = {
     "contact-title": "联系方式",
     "contact-subtitle": "期待与您的合作 · 共创智慧能源勘查新未来",
     "contact-address-label": "公司地址",
+    "contact-address": "北京市密云区西田各庄镇雁密路99号601室",
     "contact-phone-label": "联系电话",
     "contact-email-label": "电子邮箱",
     "placeholder-1": "项目展示 · 复杂油气藏三维地质模型",
@@ -207,6 +208,7 @@ const translations = {
     "contact-title": "Contact Us",
     "contact-subtitle": "Looking Forward to Working with You",
     "contact-address-label": "Address",
+    "contact-address": "Room 601, No. 99 Yanmi Road, Xitiangezhang Town, Miyun District, Beijing",
     "contact-phone-label": "Phone",
     "contact-email-label": "Email",
     "placeholder-1": "Project Showcase · 3D Reservoir Geological Model",
@@ -360,12 +362,22 @@ document.addEventListener('DOMContentLoaded', () => {
   /* 移动端菜单 */
   navToggle.addEventListener('click', () => {
     navLinksContainer.classList.toggle('open');
+    navToggle.classList.toggle('open');
+    // Update aria-label to reflect state
+    const isOpen = navLinksContainer.classList.contains('open');
+    navToggle.setAttribute('aria-label',
+      isOpen
+        ? (currentLang === 'zh' ? '关闭菜单' : 'Close menu')
+        : (currentLang === 'zh' ? '菜单' : 'Menu')
+    );
   });
 
   /* 点击导航链接关闭菜单 */
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       navLinksContainer.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-label', currentLang === 'zh' ? '菜单' : 'Menu');
     });
   });
 
@@ -382,11 +394,12 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // stop watching after revealed
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.08,           // lowered from 0.15 — triggers earlier
+    rootMargin: '0px 0px 0px 0px'  // removed negative bottom margin
   });
 
   revealElements.forEach(el => observer.observe(el));
