@@ -23,7 +23,7 @@ const translations = {
     /* Hero */
     "hero-title": "基石智勘",
     "hero-subtitle": "AI 驱动 · 智慧能源勘查",
-    "hero-rukn-meaning": "Rukn（رُكْن），阿拉伯语"基石、支柱"之意，承载我们对能源行业的坚实承诺。",
+    "hero-rukn-meaning": "Rukn（رُكْن），阿拉伯语「基石、支柱」之意，承载我们对能源行业的坚实承诺。",
     "hero-btn-services": "了解我们的服务",
     "hero-btn-contact": "联系我们",
 
