@@ -22,17 +22,17 @@ const translations = {
 
     /* Hero */
     "hero-title": "基石智勘",
-    "hero-subtitle": "AI 驱动 · 智慧能源勘查",
-    "hero-rukn-meaning": "Rukn（رُكْن），阿拉伯语「基石、支柱」之意，承载我们对能源行业的坚实承诺。",
+    "hero-subtitle": "AI驱动 · 能源智慧开发 · 矿业资源评估",
+    "hero-rukn-meaning": "Rukn（رُكْن），阿拉伯语「基石、支柱」之意，承载我们对能源与资源行业的坚实承诺。",
     "hero-btn-services": "了解我们的服务",
     "hero-btn-contact": "联系我们",
 
     /* 关于我们 */
     "about-title": "关于我们",
     "about-subtitle": "人工智能时代 · 能源资源勘查与评估 · 高效开发技术服务",
-    "about-heading": "立足智能化升级风口，赋能传统能源提质增效",
+    "about-heading": "立足智能化升级风口，赋能传统能源开发提质增效",
     "about-p1": "当前能源行业全面进入数字化、智能化、高效化转型新阶段。传统油气勘探开发模式面临复杂油气藏地质条件隐蔽、数据维度繁杂、人工建模精度有限等行业痛点。随着人工智能与大数据技术的快速迭代，AI 赋能已成为破解复杂油气藏勘探与高效开发难题的核心路径。",
-    "about-p2": "基石智勘精准聚焦 <strong>人工智能时代能源资源勘查与评估赛道</strong>，定位为「技术驱动型、场景落地型」高端油气能源技术服务商。核心团队具备海外顶级能源企业一线实战经验，深度联动多所高校科研资源，突破传统地质工程单一技术局限，打通地质专业 × 油藏工程 × 人工智能 × 算法研发技术壁垒，为客户降本、提质、增效。",
+    "about-p2": "基石智勘精准聚焦 <strong>人工智能时代矿产资源勘查与精细化评估赛道</strong>，定位为「技术驱动型、场景落地型」的高端矿产资源评价服务商。核心团队具备国内外顶级矿业企业及研究机构一线实战经验，深度联动多所高校科研资源，突破传统地质找矿单一技术局限，打通地质勘探 × 矿床模型 × 人工智能 × 算法研发技术壁垒，为固体矿产、经济金属等领域的资源精细化评估、储量动态分析与开发决策优化提供全程赋能，助力客户降本、提质、增效。",
     "about-p3": "公司始终秉持 <strong>「技术赋能、精准高效、务实共赢、长期深耕」</strong>的核心服务理念，为油气行业高质量、低成本、精细化发展提供全新解决方案。",
 
     /* 六边形网格 */
@@ -40,7 +40,7 @@ const translations = {
     "hex-oilfield": "油田",
     "hex-data": "数据",
     "hex-geology": "地质",
-    "hex-cornerstone": "基石",
+    "hex-cornerstone": "矿产",
     "hex-model": "模型",
     "hex-algorithm": "算法",
     "hex-explore": "勘查",
@@ -50,13 +50,13 @@ const translations = {
     "business-title": "核心业务",
     "business-subtitle": "覆盖油气勘探开发全流程 · 延伸矿业资源智能评估",
     "biz-1-title": "能源资源智能化勘查",
-    "biz-1-desc": "精细化评估与储量分析，运用 AI 技术对复杂油气藏进行精准勘查和资源评估，提升勘探成功率和资源利用率。",
+    "biz-1-desc": "油气领域，着重精细化评估与储量分析，运用 AI 技术对复杂油气藏进行精准勘查和资源评估。矿业领域突破传统地质找矿单一技术局限，打通地质勘探 × 矿床模型 × 人工智能 × 算法研发技术壁垒，为固体矿产、经济金属等领域的资源精细化评估。",
     "biz-2-title": "地质建模与数模优化",
     "biz-2-desc": "既深耕复杂油气藏地质建模、油藏数值模拟等传统业务，构建高精度三维地质模型，精准预测开发动态；又协助客户将 AI 技术融入现有工作流程，推动业务流程智能化升级，提质增效。",
-    "biz-3-title": "AI 应用开发",
-    "biz-3-desc": "借助日新月异、功能日益强大的 AI 技术，专注落地油气勘探开发智能化方案定制，将深度学习与日常工作场景深度融合，打造部门或团队专属 AI 工具，提高效率。",
+    "biz-3-title": "实验室分析化验",
+    "biz-3-desc": "配备高压物性、岩心CT扫描、自动化孢粉分析、酸泡分析等全套大型实验设备，依托资深专业的实验技术人员，全面承接油气田、陆地煤层勘探开发领域岩心、油、水、气等样品检测分析工作，输出科学、严谨、权威的分析化验成果报告。",
     "biz-4-title": "油田软件开发",
-    "biz-4-desc": "为油田行业定制各种实用小软件、AI 助手和业务工具，开发快、部署简单、上手即用。",
+    "biz-4-desc": "借助日新月异、功能日益强大的 AI 技术，专注落地油气勘探开发智能化方案定制，将AI与日常工作场景深度融合，打造部门或团队专属 AI 工具，从日常工作中很快落地的“小而美”的AI工具，提高效率。为油田行业定制各种实用小软件、AI 助手和业务工具，开发快、部署简单、上手即用。无论项目大小，业务有需求，我们就做。",
     "biz-5-title": "技术咨询",
     "biz-5-desc": "油气技术咨询、项目联合研发、产学研技术合作落地，提供全流程技术指导与解决方案。",
     "biz-6-title": "产学研合作",
@@ -72,7 +72,7 @@ const translations = {
     "adv-3-title": "技术融合优势",
     "adv-3-desc": "打通地质专业 + 油藏工程 + 人工智能 + 算法研发技术壁垒，大幅提升复杂地质条件下油气资源勘查精度与开发效率。",
     "adv-4-title": "灵活落地优势",
-    "adv-4-desc": "既能承接高端科研技术研发、大型油气藏智能优化项目，也可定制开发轻量化油田工具，适配不同客户与场景的差异化需求。开发部门或团队专属 AI 工具，从日常工作中很快落地的“小而美”的AI工具。",
+    "adv-4-desc": "既能承接高端科研技术研发、大型油气藏智能优化项目，也可定制开发轻量化油田工具，适配不同客户与场景的差异化需求。",
 
     /* 服务流程 */
     "proc-title": "服务流程",
@@ -138,17 +138,17 @@ const translations = {
 
     /* Hero */
     "hero-title": "Rukn GeoExplore",
-    "hero-subtitle": "AI-Driven · Smart Energy Exploration",
-    "hero-rukn-meaning": "Rukn (رُكْن) — Arabic for \"pillar\" and \"cornerstone,\" reflecting our steadfast commitment to the energy industry.",
+    "hero-subtitle": "AI-Driven · Intelligent Energy Development · Mineral Resource Assessment",
+    "hero-rukn-meaning": "Rukn (رُكْن) — Arabic for \"pillar\" and \"cornerstone,\" reflecting our steadfast commitment to the energy and resource industries.",
     "hero-btn-services": "Explore Our Services",
     "hero-btn-contact": "Contact Us",
 
     /* About Us */
     "about-title": "About Us",
     "about-subtitle": "AI-Era Energy Resource Exploration & Assessment · Efficient Development",
-    "about-heading": "Empowering Traditional Energy Through Intelligent Upgrades",
+    "about-heading": "Empowering Traditional Energy Development Through Intelligent Upgrades",
     "about-p1": "The energy industry is undergoing a full-scale transformation toward digitalization, intelligence, and efficiency. Traditional oil and gas exploration faces challenges such as complex reservoir conditions, multi-dimensional data complexity, and limited manual modeling accuracy. As AI and big data technologies rapidly evolve, AI empowerment has become the core pathway to solving the challenges of complex reservoir exploration and efficient development.",
-    "about-p2": "Rukn GeoExplore precisely targets the <strong>AI-era energy resource exploration and assessment sector</strong>, positioning itself as a 'technology-driven, implementation-oriented' high-end oil and gas technical service provider. Our core team brings frontline hands-on experience from top-tier global energy companies, coupled with deep partnerships with multiple university research networks. We break through the limitations of traditional geoscience engineering, integrating Geology × Reservoir Engineering × AI × Algorithm R&D to reduce costs, improve quality, and enhance efficiency for our clients.",
+    "about-p2": "Rukn GeoExplore precisely targets the <strong>AI-era mineral resource exploration and refined assessment sector</strong>, positioning itself as a 'technology-driven, implementation-oriented' high-end mineral resource evaluation service provider. Our core team brings frontline hands-on experience from top-tier domestic and international mining companies and research institutions, coupled with deep partnerships with multiple university research networks. We break through the limitations of traditional single-technique mineral prospecting, integrating Geological Exploration × Ore Deposit Modeling × AI × Algorithm R&D to deliver end-to-end support for refined resource assessment, dynamic reserve analysis, and development decision optimization in solid minerals and economic metals — helping clients reduce costs, improve quality, and enhance efficiency.",
     "about-p3": "The company consistently upholds the core service philosophy of <strong>'Technology Empowerment, Precision & Efficiency, Pragmatic Win-Win, Long-Term Commitment'</strong>, delivering innovative solutions for high-quality, low-cost, and refined development in the oil and gas industry.",
 
     /* Hex grid */
@@ -156,7 +156,7 @@ const translations = {
     "hex-oilfield": "Oilfield",
     "hex-data": "Data",
     "hex-geology": "Geology",
-    "hex-cornerstone": "Cornerstone",
+    "hex-cornerstone": "Minerals",
     "hex-model": "Model",
     "hex-algorithm": "Algorithm",
     "hex-explore": "Explore",
@@ -166,13 +166,13 @@ const translations = {
     "business-title": "Core Services",
     "business-subtitle": "Full-Cycle Oil & Gas Exploration · Extended Mining Resource Assessment",
     "biz-1-title": "Intelligent Exploration & Assessment",
-    "biz-1-desc": "Precise resource assessment and reserve analysis. Leveraging AI technology for accurate exploration and evaluation of complex reservoirs, improving exploration success rates and resource utilization.",
+    "biz-1-desc": "In oil and gas, we focus on refined assessment and reserve analysis, leveraging AI for accurate exploration and evaluation of complex reservoirs. In mining, we break through the limitations of traditional single-technique prospecting, integrating Geological Exploration × Ore Deposit Modeling × AI × Algorithm R&D for refined resource assessment of solid minerals and economic metals.",
     "biz-2-title": "Geological Modeling & Simulation",
     "biz-2-desc": "From complex reservoir geological modeling and numerical simulation to helping clients integrate AI into existing workflows — we deliver high-precision 3D models that accurately predict development dynamics while driving intelligent process upgrades for better quality and efficiency.",
-    "biz-3-title": "AI Application Development",
-    "biz-3-desc": "Leveraging the rapidly evolving and increasingly powerful AI technology, we focus on delivering intelligent solutions for oil and gas exploration and development. By deeply integrating deep learning into daily workflows, we build custom AI tools for departments and teams to boost efficiency.",
+    "biz-3-title": "Laboratory Analysis & Testing",
+    "biz-3-desc": "Equipped with a full suite of major laboratory instruments — high-pressure PVT analysis, core CT scanning, automated palynological analysis, acid-digestion analysis and more — and backed by senior laboratory specialists, we provide comprehensive testing and analysis of core, oil, water, and gas samples for oilfield and onshore coalbed exploration and development, delivering rigorous, authoritative analytical reports.",
     "biz-4-title": "Oilfield Software Development",
-    "biz-4-desc": "Custom development of practical tools, AI assistants, and business applications for the oilfield industry — fast to build, simple to deploy, ready to use. No project is too big or small — if you have a need, we'll take it on.",
+    "biz-4-desc": "Leveraging rapidly evolving AI technology, we deliver tailored intelligent solutions for oil and gas exploration and development, deeply integrating AI into daily workflows to build dedicated 'small but effective' AI tools for departments and teams that deploy quickly and boost efficiency. We custom-develop practical tools, AI assistants, and business applications for the oilfield industry — fast to build, simple to deploy, ready to use. No project is too big or small — if you have a need, we'll take it on.",
     "biz-5-title": "Technical Consulting",
     "biz-5-desc": "Oil & gas technical consulting, joint R&D projects, and industry-academia collaboration. Full-process technical guidance and solution delivery.",
     "biz-6-title": "Industry-Academia Cooperation",
@@ -420,6 +420,20 @@ document.addEventListener('DOMContentLoaded', () => {
     resize();
     window.addEventListener('resize', resize);
 
+    /* 从 CSS 变量读取主题色（RGB 分量），随主题自动变化 */
+    const rootStyle = getComputedStyle(document.documentElement);
+    const themeRGB = (name, fallback) =>
+      (rootStyle.getPropertyValue(name).trim() || fallback);
+    const highlightRGB = themeRGB('--highlight-rgb', '0, 212, 255');
+    const gradientMidHex = themeRGB('--gradient-mid', '#7b5fff');
+    /* 十六进制转 RGB 分量字符串 */
+    function hexToRGB(hex) {
+      const h = hex.replace('#', '');
+      const n = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16);
+      return `${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}`;
+    }
+    const midRGB = gradientMidHex.startsWith('#') ? hexToRGB(gradientMidHex) : gradientMidHex;
+
     /* 粒子类 */
     class Particle {
       constructor() {
@@ -433,8 +447,8 @@ document.addEventListener('DOMContentLoaded', () => {
         this.speedY = (Math.random() - 0.5) * 0.5;
         this.opacity = Math.random() * 0.5 + 0.1;
         this.color = Math.random() < 0.7
-          ? `rgba(0, 212, 255, ${this.opacity})`
-          : `rgba(123, 95, 255, ${this.opacity})`;
+          ? `rgba(${highlightRGB}, ${this.opacity})`
+          : `rgba(${midRGB}, ${this.opacity})`;
       }
       update() {
         this.x += this.speedX;
@@ -469,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(0, 212, 255, ${alpha})`;
+            ctx.strokeStyle = `rgba(${highlightRGB}, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

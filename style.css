@@ -3,24 +3,106 @@
    Rukn GeoExplore Technology
    ============================================ */
 
-/* === CSS 变量 === */
+/* === CSS 变量 ===
+   ┌─────────────────────────────────────────────────────────────┐
+   │  改主题只需修改本块。下方有 4 套备选配色，整块复制替换即可。  │
+   │  To change theme, edit ONLY this block. 4 alternative        │
+   │  palettes are provided below — copy one over this block.     │
+   └─────────────────────────────────────────────────────────────┘ */
+ 
 :root {
-  --bg-primary: #0d0d0d;
-  --bg-card: #1a1a2e;
-  --bg-card-trans: rgba(26, 26, 46, 0.85);
-  --highlight: #00d4ff;
-  --highlight-dim: rgba(0, 212, 255, 0.15);
-  --accent: #ff6b35;
-  --accent-dim: rgba(255, 107, 53, 0.15);
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-muted: #707070;
+  --bg-primary: #0c1410;  --bg-rgb: 12, 20, 16;
+  --bg-card: #15241c;     --bg-card-2: #101e16;
+  --bg-card-trans: rgba(21, 36, 28, 0.85);
+  --highlight: #2dd4a0;   --highlight-rgb: 45, 212, 160;
+  --highlight-hover: #1fb88a;
+  --highlight-dim: rgba(45, 212, 160, 0.15);
+  --accent: #e8a13c;      --accent-rgb: 232, 161, 60;
+  --accent-hover: #cf8b28;
+  --accent-dim: rgba(232, 161, 60, 0.15);
+  --gradient-mid: #4fc3f7;
+  --text-primary: #f2f7f4; --text-secondary: #a9bfb3; --text-muted: #6b8276;
   --border: rgba(255, 255, 255, 0.08);
-  --radius: 12px;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --max-width: 1200px;
-  --nav-height: 72px;
+  --radius: 12px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --max-width: 1200px; --nav-height: 72px;
+
 }
+
+/* ╔══════════ 备选配色 1：深海蓝 Deep Ocean（专业稳重）══════════
+:root {
+  --bg-primary: #0a1628;  --bg-rgb: 10, 22, 40;
+  --bg-card: #122440;     --bg-card-2: #0e1e36;
+  --bg-card-trans: rgba(18, 36, 64, 0.85);
+  --highlight: #4da6ff;   --highlight-rgb: 77, 166, 255;
+  --highlight-hover: #3392f0;
+  --highlight-dim: rgba(77, 166, 255, 0.15);
+  --accent: #ffc94d;      --accent-rgb: 255, 201, 77;
+  --accent-hover: #e6b033;
+  --accent-dim: rgba(255, 201, 77, 0.15);
+  --gradient-mid: #6f8fff;
+  --text-primary: #ffffff; --text-secondary: #a8bdd4; --text-muted: #5f7a94;
+  --border: rgba(255, 255, 255, 0.08);
+  --radius: 12px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --max-width: 1200px; --nav-height: 72px;
+}
+═══════════════════════════════════════════════════════════════ */
+
+/* ╔══════════ 备选配色 2：地质绿 Geo Green（能源/地球科学感）══════
+:root {
+  --bg-primary: #0c1410;  --bg-rgb: 12, 20, 16;
+  --bg-card: #15241c;     --bg-card-2: #101e16;
+  --bg-card-trans: rgba(21, 36, 28, 0.85);
+  --highlight: #2dd4a0;   --highlight-rgb: 45, 212, 160;
+  --highlight-hover: #1fb88a;
+  --highlight-dim: rgba(45, 212, 160, 0.15);
+  --accent: #e8a13c;      --accent-rgb: 232, 161, 60;
+  --accent-hover: #cf8b28;
+  --accent-dim: rgba(232, 161, 60, 0.15);
+  --gradient-mid: #4fc3f7;
+  --text-primary: #f2f7f4; --text-secondary: #a9bfb3; --text-muted: #6b8276;
+  --border: rgba(255, 255, 255, 0.08);
+  --radius: 12px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --max-width: 1200px; --nav-height: 72px;
+}
+═══════════════════════════════════════════════════════════════ */
+
+/* ╔══════════ 备选配色 3：暖岩棕 Warm Earth（矿业/岩石感）═════════
+:root {
+  --bg-primary: #14100c;  --bg-rgb: 20, 16, 12;
+  --bg-card: #241c14;     --bg-card-2: #1c1610;
+  --bg-card-trans: rgba(36, 28, 20, 0.85);
+  --highlight: #f0a843;   --highlight-rgb: 240, 168, 67;
+  --highlight-hover: #d8922e;
+  --highlight-dim: rgba(240, 168, 67, 0.15);
+  --accent: #4fc3f7;      --accent-rgb: 79, 195, 247;
+  --accent-hover: #38ade0;
+  --accent-dim: rgba(79, 195, 247, 0.15);
+  --gradient-mid: #ff8a5c;
+  --text-primary: #faf6f0; --text-secondary: #c4b8a8; --text-muted: #8a7d6a;
+  --border: rgba(255, 255, 255, 0.08);
+  --radius: 12px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --max-width: 1200px; --nav-height: 72px;
+}
+═══════════════════════════════════════════════════════════════ */
+
+/* ╔══════════ 备选配色 4：亮色版 Light Theme（明亮简洁）═══════════
+:root {
+  --bg-primary: #f5f7fa;  --bg-rgb: 245, 247, 250;
+  --bg-card: #ffffff;     --bg-card-2: #eef2f7;
+  --bg-card-trans: rgba(255, 255, 255, 0.9);
+  --highlight: #0077cc;   --highlight-rgb: 0, 119, 204;
+  --highlight-hover: #0066b0;
+  --highlight-dim: rgba(0, 119, 204, 0.12);
+  --accent: #e8590c;      --accent-rgb: 232, 89, 12;
+  --accent-hover: #cf4d08;
+  --accent-dim: rgba(232, 89, 12, 0.12);
+  --gradient-mid: #5c5cff;
+  --text-primary: #1a2433; --text-secondary: #4a5a6e; --text-muted: #8595a8;
+  --border: rgba(0, 0, 0, 0.10);
+  --radius: 12px; --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  --max-width: 1200px; --nav-height: 72px;
+}
+═══════════════════════════════════════════════════════════════ */
 
 /* === 基础重置 === */
 *,
@@ -78,7 +160,7 @@ img {
   transition: background var(--transition), box-shadow var(--transition);
 }
 .navbar.scrolled {
-  background: rgba(13, 13, 13, 0.92);
+  background: rgba(var(--bg-rgb), 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
@@ -210,10 +292,10 @@ img {
   color: var(--bg-primary);
 }
 .btn-primary:hover {
-  background: #00b8e6;
+  background: var(--highlight-hover);
   color: var(--bg-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(var(--highlight-rgb), 0.3);
 }
 .btn-outline {
   background: transparent;
@@ -224,16 +306,16 @@ img {
   background: var(--highlight);
   color: var(--bg-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(var(--highlight-rgb), 0.3);
 }
 .btn-accent {
   background: var(--accent);
   color: #fff;
 }
 .btn-accent:hover {
-  background: #e55a2b;
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.3);
 }
 
 /* === 区块通用 === */
@@ -250,7 +332,7 @@ img {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 12px;
-  background: linear-gradient(135deg, var(--highlight), #7b5fff);
+  background: linear-gradient(135deg, var(--highlight), var(--gradient-mid));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -302,10 +384,10 @@ img {
   inset: 0;
   background:
     linear-gradient(180deg,
-      rgba(0, 212, 255, 0.03) 0%,
-      rgba(0, 212, 255, 0) 30%,
-      rgba(255, 107, 53, 0.04) 70%,
-      rgba(13, 13, 13, 0.95) 100%);
+      rgba(var(--highlight-rgb), 0.03) 0%,
+      rgba(var(--highlight-rgb), 0) 30%,
+      rgba(var(--accent-rgb), 0.04) 70%,
+      rgba(var(--bg-rgb), 0.95) 100%);
   pointer-events: none;
 }
 
@@ -319,7 +401,7 @@ img {
   width: 120px;
   height: auto;
   margin: 0 auto 32px;
-  filter: drop-shadow(0 0 24px rgba(0, 212, 255, 0.4));
+  filter: drop-shadow(0 0 24px rgba(var(--highlight-rgb), 0.4));
   animation: float 4s ease-in-out infinite;
 }
 @keyframes float {
@@ -332,7 +414,7 @@ img {
   font-weight: 800;
   letter-spacing: 0.08em;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #00d4ff 0%, #7b5fff 50%, #ff6b35 100%);
+  background: linear-gradient(135deg, var(--highlight) 0%, var(--gradient-mid) 50%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -347,7 +429,7 @@ img {
 
 .hero-rukn-meaning {
   font-size: 0.95rem;
-  color: rgba(255, 107, 53, 0.7);
+  color: rgba(var(--accent-rgb), 0.7);
   margin-bottom: 36px;
   font-style: italic;
   letter-spacing: 0.03em;
@@ -406,7 +488,7 @@ img {
   transition: all var(--transition);
 }
 .about-visual .hex-item:nth-child(5) {
-  background: rgba(0, 212, 255, 0.12);
+  background: rgba(var(--highlight-rgb), 0.12);
   border-color: var(--highlight);
   color: var(--highlight);
   font-size: 1.8rem;
@@ -442,8 +524,8 @@ img {
 }
 .business-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(0, 212, 255, 0.3);
-  box-shadow: 0 16px 48px rgba(0, 212, 255, 0.1);
+  border-color: rgba(var(--highlight-rgb), 0.3);
+  box-shadow: 0 16px 48px rgba(var(--highlight-rgb), 0.1);
 }
 .business-card:hover::before {
   transform: scaleX(1);
@@ -463,7 +545,7 @@ img {
   transition: all var(--transition);
 }
 .business-card:hover .business-icon {
-  background: rgba(0, 212, 255, 0.25);
+  background: rgba(var(--highlight-rgb), 0.25);
   transform: scale(1.1);
 }
 
@@ -496,7 +578,7 @@ img {
   transition: all var(--transition);
 }
 .advantage-card:hover {
-  border-color: rgba(0, 212, 255, 0.25);
+  border-color: rgba(var(--highlight-rgb), 0.25);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -505,7 +587,7 @@ img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(0, 212, 255, 0.08);
+  background: rgba(var(--highlight-rgb), 0.08);
   border: 2px solid var(--highlight);
   display: flex;
   align-items: center;
@@ -572,7 +654,7 @@ img {
 .process-step:hover .process-dot {
   background: var(--highlight);
   color: var(--bg-primary);
-  box-shadow: 0 0 32px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 32px rgba(var(--highlight-rgb), 0.4);
   transform: scale(1.15);
 }
 
@@ -665,7 +747,7 @@ img {
 
 /* === Footer === */
 .footer {
-  background: rgba(13, 13, 13, 0.98);
+  background: rgba(var(--bg-rgb), 0.98);
   border-top: 1px solid var(--border);
   padding: 32px 40px;
   text-align: center;
@@ -730,14 +812,14 @@ img {
   background: var(--highlight);
   color: var(--bg-primary);
   border-color: var(--highlight);
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(var(--highlight-rgb), 0.3);
 }
 
 /* === 占位图 === */
 .placeholder-img {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-2) 100%);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -766,7 +848,7 @@ img {
     top: var(--nav-height);
     left: 0;
     right: 0;
-    background: rgba(13, 13, 13, 0.96);
+    background: rgba(var(--bg-rgb), 0.96);
     backdrop-filter: blur(16px);
     padding: 24px 20px;
     gap: 16px;

@@ -1,0 +1,88 @@
+<!-- ============================================================
+     临时调色面板 Theme Tester (开发用，调好后删除)
+     用法：把下面整段 <script> 复制粘贴到 index.html 的
+     </body> 之前，刷新页面，右下角会出现调色面板。
+     实时改色 → 点「复制 CSS」→ 粘贴回 style.css 的 :root。
+     ============================================================ -->
+<script>
+(function () {
+  const vars = [
+    ['--bg-primary',   '页面背景'],
+    ['--bg-card',      '卡片背景'],
+    ['--bg-card-2',    '卡片渐变2'],
+    ['--highlight',    '主色'],
+    ['--highlight-hover', '主色悬停'],
+    ['--accent',       '强调色'],
+    ['--accent-hover', '强调悬停'],
+    ['--gradient-mid', '渐变中间色'],
+    ['--text-primary', '正文文字'],
+    ['--text-secondary','次要文字'],
+    ['--text-muted',   '弱化文字'],
+  ];
+  const root = document.documentElement;
+  const cs = getComputedStyle(root);
+  const toHex = v => {
+    v = v.trim();
+    if (v.startsWith('#')) return v.length === 4
+      ? '#' + [...v.slice(1)].map(c => c + c).join('') : v;
+    const m = v.match(/\d+/g);
+    return m ? '#' + m.slice(0,3).map(n => (+n).toString(16).padStart(2,'0')).join('') : '#000000';
+  };
+  const hexToRGB = h => {
+    const n = parseInt(h.slice(1), 16);
+    return `${(n>>16)&255}, ${(n>>8)&255}, ${n&255}`;
+  };
+  const panel = document.createElement('div');
+  panel.style.cssText = 'position:fixed;bottom:16px;right:16px;z-index:99999;'
+    + 'background:#111;border:1px solid #444;border-radius:10px;padding:14px;'
+    + 'font:12px/1.6 sans-serif;color:#eee;box-shadow:0 8px 32px rgba(0,0,0,.6);'
+    + 'max-height:80vh;overflow:auto;width:230px';
+  panel.innerHTML = '<b style="font-size:13px">🎨 调色面板</b><br>';
+  vars.forEach(([name, label]) => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:8px;margin-top:6px';
+    const input = document.createElement('input');
+    input.type = 'color';
+    input.value = toHex(cs.getPropertyValue(name));
+    input.dataset.var = name;
+    input.style.cssText = 'width:32px;height:24px;border:none;padding:0;cursor:pointer';
+    input.oninput = () => {
+      root.style.setProperty(name, input.value);
+      /* 同步 RGB 分量与 dim 变量 */
+      const rgb = hexToRGB(input.value);
+      if (name === '--highlight') {
+        root.style.setProperty('--highlight-rgb', rgb);
+        root.style.setProperty('--highlight-dim', `rgba(${rgb}, 0.15)`);
+      }
+      if (name === '--accent') {
+        root.style.setProperty('--accent-rgb', rgb);
+        root.style.setProperty('--accent-dim', `rgba(${rgb}, 0.15)`);
+      }
+      if (name === '--bg-primary') root.style.setProperty('--bg-rgb', rgb);
+    };
+    const span = document.createElement('span');
+    span.textContent = label + ' ' + name;
+    row.append(input, span);
+    panel.appendChild(row);
+  });
+  const btn = document.createElement('button');
+  btn.textContent = '复制 CSS 到剪贴板';
+  btn.style.cssText = 'margin-top:10px;width:100%;padding:6px;cursor:pointer;'
+    + 'background:#0af;border:none;border-radius:6px;color:#000;font-weight:bold';
+  btn.onclick = () => {
+    let out = ':root {\n';
+    panel.querySelectorAll('input[type=color]').forEach(i => {
+      out += `  ${i.dataset.var}: ${i.value};\n`;
+      const rgb = hexToRGB(i.value);
+      if (i.dataset.var === '--highlight') out += `  --highlight-rgb: ${rgb};\n  --highlight-dim: rgba(${rgb}, 0.15);\n`;
+      if (i.dataset.var === '--accent')    out += `  --accent-rgb: ${rgb};\n  --accent-dim: rgba(${rgb}, 0.15);\n`;
+      if (i.dataset.var === '--bg-primary') out += `  --bg-rgb: ${rgb};\n`;
+    });
+    out += '}';
+    navigator.clipboard.writeText(out).then(() => btn.textContent = '✅ 已复制！');
+    setTimeout(() => btn.textContent = '复制 CSS 到剪贴板', 1500);
+  };
+  panel.appendChild(btn);
+  document.body.appendChild(panel);
+})();
+</script>
