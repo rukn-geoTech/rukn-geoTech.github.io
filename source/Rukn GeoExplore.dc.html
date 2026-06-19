@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;}
+  body{background:#ffffff;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+  ::selection{background:rgba(184,134,30,0.22);}
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  @media (max-width:1024px){
+    .about-grid,.mea-feature,.contact-grid{grid-template-columns:1fr!important;}
+    .about-visual{display:none!important;}
+    .biz-grid,.mea-areas,.adv-grid{grid-template-columns:1fr 1fr!important;}
+  }
+  @media (max-width:860px){
+    .nav-links{display:none!important;}
+    .nav-links.open{display:flex!important;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(14px);padding:22px 26px;gap:18px;border-bottom:1px solid rgba(13,33,55,0.1);align-items:flex-start;}
+    .nav-toggle{display:flex!important;}
+    .biz-grid,.mea-areas,.adv-grid{grid-template-columns:1fr!important;}
+    .proc-steps{flex-direction:column!important;gap:8px!important;}
+    .proc-line{display:none!important;}
+    .proc-step{display:flex!important;align-items:center;gap:18px;text-align:left!important;}
+    .hero-h1{font-size:2.7rem!important;}
+    .sec{padding:74px 22px!important;}
+    .mea-pills{flex-direction:column!important;align-items:flex-start!important;}
+  }
+</style>
+</helmet>
+<div id="rukn-root" style="--navy:#0d2137;--navy2:#1a3a5c;--blue:#3a7bd5;--gold:#b8861e;--gold2:#d4a843;--ink:#15202e;--text:#3a4a5a;--muted:#7c8b9a;--bg:#ffffff;--bgalt:#f4f6f9;--bgsoft:#eaeff4;--border:rgba(13,33,55,0.1);--golddim:rgba(184,134,30,0.12);--bluedim:rgba(58,123,213,0.1);--radius:14px;background:#ffffff;color:#15202e;font-family:'Plus Jakarta Sans',-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.7;min-height:100vh;overflow-x:hidden;">
+
+  <header class="navbar" id="navbar" style="position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,48px);background:rgba(255,255,255,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:box-shadow .3s;">
+    <a href="#hero" style="display:flex;align-items:center;text-decoration:none;">
+      <img src="logo_v1.png" alt="基石智勘 Rukn GeoExplore" style="height:40px;width:auto;">
+    </a>
+    <nav class="nav-links" id="navLinks" style="display:flex;gap:30px;align-items:center;">
+      <a href="#hero" data-nav="hero" data-i18n="nav-home" style="color:var(--navy2);font-size:0.92rem;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">首页</a>
+      <a href="#about" data-nav="about" data-i18n="nav-about" style="color:var(--text);font-size:0.92rem;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">关于我们</a>
+      <a href="#business" data-nav="business" data-i18n="nav-business" style="color:var(--text);font-size:0.92rem;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">技术开发</a>
+      <a href="#mea" data-nav="mea" data-i18n="nav-mea" style="color:var(--text);font-size:0.92rem;font-weight:700;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">中东及非洲</a>
+      <a href="#advantage" data-nav="advantage" data-i18n="nav-advantage" style="color:var(--text);font-size:0.92rem;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">技术与服务</a>
+      <a href="#process" data-nav="process" data-i18n="nav-process" style="color:var(--text);font-size:0.92rem;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">服务流程</a>
+      <a href="#contact" data-nav="contact" data-i18n="nav-contact" style="color:var(--text);font-size:0.92rem;font-weight:600;text-decoration:none;letter-spacing:0.01em;transition:color .25s;" style-hover="color:var(--gold);">联系方式</a>
+      <button class="lang-switcher" id="langSwitcher" aria-label="Switch to English" style="display:inline-flex;align-items:center;justify-content:center;min-width:46px;height:34px;padding:0 14px;background:transparent;border:1.5px solid var(--border);border-radius:20px;color:var(--navy2);font-size:0.8rem;font-weight:700;letter-spacing:0.04em;cursor:pointer;transition:all .25s;" style-hover="border-color:var(--gold);color:var(--gold);background:var(--golddim);">EN</button>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" style="display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;width:38px;height:38px;align-items:center;justify-content:center;">
+      <span style="display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;"></span>
+      <span style="display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;"></span>
+      <span style="display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;"></span>
+    </button>
+  </header>
+
+  <section class="hero" id="hero" data-screen-label="Hero" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,#f8fafc 0%,#eef2f7 55%,#e7edf3 100%);">
+    <div class="hero-bg" style="position:absolute;inset:0;z-index:0;"><canvas id="heroCanvas" style="display:block;width:100%;height:100%;"></canvas></div>
+    <div style="position:absolute;inset:0;z-index:0;background:radial-gradient(60% 50% at 50% 38%,rgba(58,123,213,0.06),transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;z-index:1;max-width:880px;padding:0 22px;">
+      <div style="display:inline-flex;align-items:center;gap:9px;padding:7px 16px;border:1px solid var(--border);border-radius:40px;background:rgba(255,255,255,0.6);margin-bottom:30px;">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);"></span>
+        <span data-i18n="hero-kicker" style="font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy2);">AI · 能源 · 中东及非洲</span>
+      </div>
+      <h1 class="hero-h1" data-i18n="hero-title" style="font-family:'Sora',sans-serif;font-size:clamp(2.8rem,7vw,4.6rem);font-weight:800;letter-spacing:0.04em;color:var(--navy);margin-bottom:18px;line-height:1.05;">基石智勘</h1>
+      <p data-i18n="hero-subtitle" style="font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--navy2);font-weight:500;letter-spacing:0.02em;margin-bottom:18px;">AI驱动 · 能源智慧开发 · 中东非洲商务技术</p>
+      <p data-i18n="hero-rukn-meaning" style="font-size:0.96rem;color:var(--text);max-width:620px;margin:0 auto 38px;font-style:italic;">Rukn（رُكْن），阿拉伯语「基石、支柱」之意，承载我们坚实的承诺——「勘」，不止于能源资源的实地勘探，更是对市场的精准细致勘察。</p>
+      <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
+        <a href="#business" data-i18n="hero-btn-services" style="padding:15px 36px;border-radius:40px;font-weight:700;font-size:1rem;text-decoration:none;background:var(--gold);color:#fff;transition:all .3s;box-shadow:0 10px 30px rgba(184,134,30,0.25);" style-hover="background:#9a6f15;transform:translateY(-2px);">了解我们的服务</a>
+        <a href="#mea" data-i18n="hero-btn-mea" style="padding:15px 36px;border-radius:40px;font-weight:700;font-size:1rem;text-decoration:none;background:transparent;color:var(--navy2);border:1.6px solid var(--navy2);transition:all .3s;" style-hover="background:var(--navy2);color:#fff;transform:translateY(-2px);">中东及非洲业务</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="about" data-screen-label="About" style="padding:104px clamp(20px,5vw,48px);max-width:1180px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <div data-i18n="about-kicker" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">关于我们</div>
+      <h2 data-i18n="about-title" style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:14px;">能源资源勘查与评估</h2>
+      <p data-i18n="about-subtitle" style="color:var(--text);font-size:1.08rem;max-width:680px;margin:0 auto;">人工智能时代 · 能源资源勘查与评估 · 高效开发技术服务</p>
+    </div>
+    <div class="about-grid" style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center;">
+      <div class="reveal">
+        <h3 data-i18n="about-heading" style="font-family:'Sora',sans-serif;font-size:1.5rem;color:var(--navy);margin-bottom:20px;font-weight:700;">立足智能化升级风口，赋能传统能源开发提质增效</h3>
+        <p data-i18n-html="about-p1" style="color:var(--text);margin-bottom:16px;font-size:0.98rem;">当前能源行业全面进入数字化、智能化、高效化转型新阶段。传统油气勘探开发模式面临复杂油气藏地质条件隐蔽、数据维度繁杂、人工建模精度有限等行业痛点。随着人工智能与大数据技术的快速迭代，AI 赋能已成为破解复杂油气藏勘探与高效开发难题的核心路径。</p>
+        <p data-i18n-html="about-p2" style="color:var(--text);margin-bottom:16px;font-size:0.98rem;">基石智勘精准聚焦 <strong style="color:var(--navy2);">人工智能时代矿产资源勘查与精细化评估赛道</strong>，定位为「技术驱动型、场景落地型」的高端矿产资源评价服务商。核心团队具备国内外顶级矿业企业及研究机构一线实战经验，深度联动多所高校科研资源，打通地质勘探 × 矿床模型 × 人工智能 × 算法研发技术壁垒，为固体矿产、经济金属等领域提供资源精细化评估、储量动态分析与开发决策优化，助力客户降本、提质、增效。</p>
+        <p data-i18n-html="about-p3" style="color:var(--text);font-size:0.98rem;">公司始终秉持 <strong style="color:var(--navy2);">「技术赋能、精准高效、务实共赢、长期深耕」</strong> 的核心服务理念，为油气行业高质量、低成本、精细化发展提供全新解决方案。</p>
+      </div>
+      <div class="about-visual reveal" style="display:flex;justify-content:center;align-items:center;">
+        <div style="display:grid;grid-template-columns:repeat(3,84px);grid-template-rows:repeat(3,74px);gap:6px;">
+          <div data-i18n="hex-ai" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.2rem;font-weight:600;color:var(--navy2);">AI</div>
+          <div data-i18n="hex-oilfield" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">油田</div>
+          <div data-i18n="hex-data" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">数据</div>
+          <div data-i18n="hex-geology" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">地质</div>
+          <div data-i18n="hex-cornerstone" style="width:84px;height:74px;background:rgba(184,134,30,0.14);border:1.5px solid var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1.15rem;font-weight:700;color:var(--gold);">矿产</div>
+          <div data-i18n="hex-model" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">模型</div>
+          <div data-i18n="hex-algorithm" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">算法</div>
+          <div data-i18n="hex-explore" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">勘查</div>
+          <div data-i18n="hex-energy" style="width:84px;height:74px;background:var(--bgalt);border:1px solid var(--border);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:600;color:var(--navy2);">能源</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mea-feature reveal" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;margin-top:90px;padding-top:72px;border-top:1px solid var(--border);">
+      <div style="position:relative;border-radius:18px;overflow:hidden;background:linear-gradient(140deg,rgba(184,134,30,0.07) 0%,rgba(58,123,213,0.05) 100%),var(--bg);border:1px solid var(--border);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:34px;">
+        <div style="position:absolute;top:30px;left:34px;width:58px;height:58px;display:flex;align-items:center;justify-content:center;background:var(--golddim);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);">
+          <div style="width:24px;height:24px;background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);"></div>
+        </div>
+        <div style="position:relative;">
+          <div data-i18n="mea-feature-stat-num" style="font-family:'Sora';font-size:1.85rem;font-weight:800;color:var(--navy);line-height:1.15;">非洲本土团队</div>
+          <div data-i18n="mea-feature-stat-label" style="font-size:0.92rem;color:var(--text);margin-top:10px;">扎根当地 · 强力运作 · 全链条赋能</div>
+        </div>
+      </div>
+      <div>
+        <h3 data-i18n="about-heading-mea" style="font-family:'Sora',sans-serif;font-size:1.5rem;color:var(--navy);margin-bottom:20px;font-weight:700;">深耕中东及非洲市场，提供全链条商务与技术赋能</h3>
+        <p data-i18n-html="about-p4" style="color:var(--text);margin-bottom:22px;font-size:0.98rem;">在中非合作迈向「产业链共兴」与「本地化运营」的新阶段，跨境投资与资源开发面临着信息壁垒、合规风险及文化差异等多重挑战。为此，我们全面拓展中东及非洲市场商务服务，依托 <strong style="color:var(--navy2);">扎根当地的非洲本土团队强力运作</strong>，将技术服务与商务落地深度融合，为企业出海提供从前期调研到后期运营的一站式解决方案。</p>
+        <a href="#mea" data-i18n="mea-link" style="display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--gold);text-decoration:none;font-size:0.98rem;" style-hover="gap:14px;">查看中东及非洲业务 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="business" data-screen-label="Business" style="padding:104px clamp(20px,5vw,48px);background:var(--bgalt);">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;margin-bottom:60px;">
+        <div data-i18n="business-kicker" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">技术开发</div>
+        <h2 data-i18n="business-title" style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:14px;">技术开发</h2>
+        <p data-i18n="business-subtitle" style="color:var(--text);font-size:1.08rem;max-width:680px;margin:0 auto;">覆盖油气勘探开发全流程 · 延伸矿业资源智能评估</p>
+      </div>
+      <div class="biz-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:20px;">01</div>
+          <h3 data-i18n="biz-1-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--navy);">能源资源智能化勘查</h3>
+          <p data-i18n="biz-1-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">油气领域，着重精细化评估与储量分析，运用 AI 技术对复杂油气藏进行精准勘查和资源评估。矿业领域突破传统地质找矿单一技术局限，打通地质勘探 × 矿床模型 × 人工智能 × 算法研发技术壁垒，为固体矿产、经济金属等领域提供资源精细化评估。</p>
+        </div>
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:20px;">02</div>
+          <h3 data-i18n="biz-2-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--navy);">地质建模与数模优化</h3>
+          <p data-i18n="biz-2-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">既深耕复杂油气藏地质建模、油藏数值模拟等传统业务，构建高精度三维地质模型，精准预测开发动态；又协助客户将 AI 技术融入现有工作流程，推动业务流程智能化升级，提质增效。</p>
+        </div>
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:20px;">03</div>
+          <h3 data-i18n="biz-3-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--navy);">实验室分析化验</h3>
+          <p data-i18n="biz-3-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">配备高压物性、岩心CT扫描、自动化孢粉分析、酸泡分析等全套大型实验设备，依托资深专业的实验技术人员，全面承接油气田、陆地煤层勘探开发领域岩心、油、水、气等样品检测分析工作，输出科学、严谨、权威的分析化验成果报告。</p>
+        </div>
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px 28px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:20px;">04</div>
+          <h3 data-i18n="biz-5-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--navy);">技术咨询</h3>
+          <p data-i18n="biz-5-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">油气技术咨询、项目联合研发、产学研技术合作落地，提供全流程技术指导与解决方案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="mea" data-screen-label="MEA" style="padding:108px clamp(20px,5vw,48px);background:var(--bgalt);position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.5;background:radial-gradient(40% 40% at 85% 12%,rgba(184,134,30,0.16),transparent 70%),radial-gradient(40% 45% at 8% 90%,rgba(58,123,213,0.16),transparent 70%);pointer-events:none;"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;margin-bottom:54px;">
+        <div data-i18n="mea-kicker" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">中东及非洲 · MIDDLE EAST &amp; AFRICA</div>
+        <h2 data-i18n="mea-title" style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:16px;">中东及非洲商务技术服务</h2>
+        <p data-i18n="mea-subtitle" style="color:var(--text);font-size:1.08rem;max-width:760px;margin:0 auto;">扎根本土团队 · 技术输出 + 本土赋能 · 中非经贸合作的「陪跑者」</p>
+      </div>
+
+      <p class="reveal" data-i18n-html="about-p5" style="color:var(--text);font-size:1rem;max-width:920px;margin:0 auto 50px;text-align:center;line-height:1.8;">我们的中东及非洲业务涵盖四大核心领域：<strong style="color:var(--gold);">精准市场调研</strong>（提供权威政策导航、产业数据及营商环境评估）、<strong style="color:var(--gold);">深度商务合作</strong>（涵盖跨文化沟通、本地合规指导、招投标对接及属地化伙伴匹配）、<strong style="color:var(--gold);">项目投资服务</strong>（从项目可研、风险防控到投融资对接的全周期陪跑），以及 <strong style="color:var(--gold);">属地化技术支持</strong>（协助中国技术标准落地与本地技术团队培训）。</p>
+
+      <div class="mea-areas" style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:54px;">
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:18px;">01</div>
+          <h3 data-i18n="mea-area-1-title" style="font-family:'Sora';font-size:1.12rem;font-weight:700;margin-bottom:9px;color:var(--navy);">精准市场调研</h3>
+          <p data-i18n="mea-area-1-desc" style="font-size:0.9rem;color:var(--text);line-height:1.6;">提供权威政策导航、产业数据及营商环境评估，助您看清市场全貌、把握机遇。</p>
+        </div>
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:18px;">02</div>
+          <h3 data-i18n="mea-area-2-title" style="font-family:'Sora';font-size:1.12rem;font-weight:700;margin-bottom:9px;color:var(--navy);">深度商务合作</h3>
+          <p data-i18n="mea-area-2-desc" style="font-size:0.9rem;color:var(--text);line-height:1.6;">涵盖跨文化沟通、本地合规指导、招投标对接及属地化伙伴匹配。</p>
+        </div>
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:18px;">03</div>
+          <h3 data-i18n="mea-area-3-title" style="font-family:'Sora';font-size:1.12rem;font-weight:700;margin-bottom:9px;color:var(--navy);">项目投资服务</h3>
+          <p data-i18n="mea-area-3-desc" style="font-size:0.9rem;color:var(--text);line-height:1.6;">从项目可研、风险防控到投融资对接的全周期陪跑。</p>
+        </div>
+        <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 18px 44px rgba(13,33,55,0.1);border-color:rgba(184,134,30,0.4);">
+          <div style="width:50px;height:50px;display:flex;align-items:center;justify-content:center;background:var(--golddim);color:var(--gold);font-family:'Sora';font-weight:700;font-size:1.05rem;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);margin-bottom:18px;">04</div>
+          <h3 data-i18n="mea-area-4-title" style="font-family:'Sora';font-size:1.12rem;font-weight:700;margin-bottom:9px;color:var(--navy);">属地化技术支持</h3>
+          <p data-i18n="mea-area-4-desc" style="font-size:0.9rem;color:var(--text);line-height:1.6;">协助中国技术标准落地与本地技术团队培训。</p>
+        </div>
+      </div>
+
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:18px;padding:38px clamp(24px,4vw,46px);">
+        <p data-i18n-html="about-p6" style="color:var(--text);font-size:1.02rem;line-height:1.85;margin-bottom:28px;">通过「技术输出 + 本土赋能」的创新模式，我们不仅是资源的勘探者，更是中非经贸合作的「陪跑者」。我们致力于消除信息鸿沟，降低跨境运营成本，助力客户在复杂多变的国际市场中精准把握商机，实现真正的务实共赢与长期深耕。</p>
+        <div class="mea-pills" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:30px;background:rgba(184,134,30,0.14);border:1px solid rgba(184,134,30,0.35);"><span style="width:7px;height:7px;border-radius:50%;background:var(--gold2);"></span><span data-i18n="mea-pill-1" style="font-size:0.88rem;font-weight:600;color:var(--navy);">非洲本土团队强力运作</span></span>
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:30px;background:rgba(58,123,213,0.14);border:1px solid rgba(58,123,213,0.35);"><span style="width:7px;height:7px;border-radius:50%;background:var(--blue);"></span><span data-i18n="mea-pill-2" style="font-size:0.88rem;font-weight:600;color:var(--navy);">技术输出 + 本土赋能</span></span>
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:10px 18px;border-radius:30px;background:rgba(13,33,55,0.05);border:1px solid var(--border);"><span style="width:7px;height:7px;border-radius:50%;background:var(--navy);"></span><span data-i18n="mea-pill-3" style="font-size:0.88rem;font-weight:600;color:var(--navy);">出海全周期陪跑</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="advantage" data-screen-label="Advantages" style="padding:104px clamp(20px,5vw,48px);max-width:1180px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <div data-i18n="adv-kicker" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">技术和服务优势</div>
+      <h2 data-i18n="adv-title" style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:14px;">技术和服务优势</h2>
+      <p data-i18n="adv-subtitle" style="color:var(--text);font-size:1.08rem;max-width:680px;margin:0 auto;">技术开发硬实力 × 中东及非洲属地化服务 · 双轮驱动客户成功</p>
+    </div>
+    <div class="adv-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:26px;">
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px;display:flex;gap:24px;align-items:flex-start;transition:box-shadow .3s,border-color .3s;" style-hover="box-shadow:0 14px 40px rgba(13,33,55,0.08);border-color:rgba(184,134,30,0.35);">
+        <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--golddim);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.4rem;font-weight:700;color:var(--gold);">01</div>
+        <div><h4 data-i18n="adv-1-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:8px;color:var(--navy);">一线实战技术优势</h4><p data-i18n="adv-1-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">核心团队具备海外顶级能源企业一线油气项目实操经验，深耕油气勘探开发、油藏数模、地质建模、矿业资源评估领域多年，实战落地能力突出。</p></div>
+      </div>
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px;display:flex;gap:24px;align-items:flex-start;transition:box-shadow .3s,border-color .3s;" style-hover="box-shadow:0 14px 40px rgba(13,33,55,0.08);border-color:rgba(184,134,30,0.35);">
+        <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--golddim);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.4rem;font-weight:700;color:var(--gold);">02</div>
+        <div><h4 data-i18n="adv-2-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:8px;color:var(--navy);">技术融合优势</h4><p data-i18n="adv-2-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">打通地质专业 + 油藏工程 + 人工智能 + 算法研发技术壁垒，大幅提升复杂地质条件下油气资源勘查精度与开发效率。</p></div>
+      </div>
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px;display:flex;gap:24px;align-items:flex-start;transition:box-shadow .3s,border-color .3s;" style-hover="box-shadow:0 14px 40px rgba(13,33,55,0.08);border-color:rgba(184,134,30,0.35);">
+        <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--golddim);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.4rem;font-weight:700;color:var(--gold);">03</div>
+        <div><h4 data-i18n="adv-3-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:8px;color:var(--navy);">属地化商务服务优势</h4><p data-i18n="adv-3-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">依托扎根当地的非洲本土团队强力运作，深谙政策法规、营商环境与文化差异，提供跨文化沟通、本地合规指导与属地化伙伴匹配。</p></div>
+      </div>
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:34px;display:flex;gap:24px;align-items:flex-start;transition:box-shadow .3s,border-color .3s;" style-hover="box-shadow:0 14px 40px rgba(13,33,55,0.08);border-color:rgba(184,134,30,0.35);">
+        <div style="flex-shrink:0;width:58px;height:58px;border-radius:50%;background:var(--golddim);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.4rem;font-weight:700;color:var(--gold);">04</div>
+        <div><h4 data-i18n="adv-4-title" style="font-family:'Sora';font-size:1.15rem;font-weight:700;margin-bottom:8px;color:var(--navy);">全周期出海陪跑优势</h4><p data-i18n="adv-4-desc" style="font-size:0.92rem;color:var(--text);line-height:1.65;">以「技术输出 + 本土赋能」模式，提供从市场调研、项目投资到落地运营的一站式陪跑，助力客户务实共赢、长期深耕。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="process" data-screen-label="Process" style="padding:104px clamp(20px,5vw,48px);background:var(--bgalt);">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;margin-bottom:64px;">
+        <div data-i18n="proc-kicker" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">服务流程</div>
+        <h2 data-i18n="proc-title" style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:14px;">服务流程</h2>
+        <p data-i18n="proc-subtitle" style="color:var(--text);font-size:1.08rem;max-width:680px;margin:0 auto;">技术开发与商务服务双线并行 · 全流程精细化陪跑</p>
+      </div>
+      <div class="reveal" style="display:flex;align-items:center;gap:12px;margin-bottom:30px;"><span style="width:30px;height:3px;background:var(--gold);border-radius:2px;"></span><h3 data-i18n="proc-track-1" style="font-family:'Sora';font-size:1.18rem;font-weight:700;color:var(--navy);">技术开发流程</h3></div>
+      <div class="proc-steps" style="display:flex;justify-content:space-between;position:relative;gap:16px;">
+        <div class="proc-line" style="position:absolute;top:29px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold) 40%,var(--blue) 100%);z-index:0;"></div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--gold);">1</div>
+          <h4 data-i18n="proc-1-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">需求沟通</h4>
+          <p data-i18n="proc-1-desc" style="font-size:0.85rem;color:var(--text);">深入了解客户痛点与技术需求，明确项目目标与范围</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--gold);">2</div>
+          <h4 data-i18n="proc-2-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">方案设计</h4>
+          <p data-i18n="proc-2-desc" style="font-size:0.85rem;color:var(--text);">定制化技术方案设计，结合 AI 与地质工程制定最优路径</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--gold);">3</div>
+          <h4 data-i18n="proc-3-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">技术研发</h4>
+          <p data-i18n="proc-3-desc" style="font-size:0.85rem;color:var(--text);">模型构建、算法开发、软件定制，分阶段迭代交付</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--gold);">4</div>
+          <h4 data-i18n="proc-4-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">测试验证</h4>
+          <p data-i18n="proc-4-desc" style="font-size:0.85rem;color:var(--text);">基于真实数据验证，确保模型精度与方案可行性</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--gold);">5</div>
+          <h4 data-i18n="proc-5-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">交付支持</h4>
+          <p data-i18n="proc-5-desc" style="font-size:0.85rem;color:var(--text);">成果交付、培训指导、持续优化与长期技术支持</p>
+        </div>
+      </div>
+      <div class="reveal" style="display:flex;align-items:center;gap:12px;margin:66px 0 30px;"><span style="width:30px;height:3px;background:var(--blue);border-radius:2px;"></span><h3 data-i18n="proc-track-2" style="font-family:'Sora';font-size:1.18rem;font-weight:700;color:var(--navy);">中东及非洲商务服务流程</h3></div>
+      <div class="proc-steps" style="display:flex;justify-content:space-between;position:relative;gap:16px;">
+        <div class="proc-line" style="position:absolute;top:29px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue) 40%,var(--gold) 100%);z-index:0;"></div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--blue);">1</div>
+          <h4 data-i18n="proc-b1-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">需求对接</h4>
+          <p data-i18n="proc-b1-desc" style="font-size:0.85rem;color:var(--text);">明确出海目标、资源诉求与合作意向，建立沟通机制</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--blue);">2</div>
+          <h4 data-i18n="proc-b2-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">市场调研</h4>
+          <p data-i18n="proc-b2-desc" style="font-size:0.85rem;color:var(--text);">权威政策导航、产业数据与营商环境评估，看清市场全貌</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--blue);">3</div>
+          <h4 data-i18n="proc-b3-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">商务对接</h4>
+          <p data-i18n="proc-b3-desc" style="font-size:0.85rem;color:var(--text);">跨文化沟通、本地合规指导、招投标对接与属地化伙伴匹配</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--blue);">4</div>
+          <h4 data-i18n="proc-b4-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">投资落地</h4>
+          <p data-i18n="proc-b4-desc" style="font-size:0.85rem;color:var(--text);">项目可研、风险防控与投融资对接，推动项目稳健落地</p>
+        </div>
+        <div class="proc-step reveal" style="flex:1;text-align:center;position:relative;z-index:1;">
+          <div style="width:58px;height:58px;border-radius:50%;background:var(--bg);border:2px solid var(--blue);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-size:1.3rem;font-weight:700;color:var(--blue);">5</div>
+          <h4 data-i18n="proc-b5-title" style="font-family:'Sora';font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--navy);">运营陪跑</h4>
+          <p data-i18n="proc-b5-desc" style="font-size:0.85rem;color:var(--text);">属地化技术支持与本地团队培训，长期陪跑共赢</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" data-screen-label="Contact" style="padding:104px clamp(20px,5vw,48px);max-width:1180px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <div data-i18n="contact-kicker" style="font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">联系方式</div>
+      <h2 data-i18n="contact-title" style="font-family:'Sora',sans-serif;font-size:clamp(2rem,4vw,2.7rem);font-weight:800;color:var(--navy);letter-spacing:-0.01em;margin-bottom:14px;">联系方式</h2>
+      <p data-i18n="contact-subtitle" style="color:var(--text);font-size:1.08rem;max-width:680px;margin:0 auto;">期待与您的合作 · 共创智慧能源勘查新未来</p>
+    </div>
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+      <div class="reveal">
+        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:26px;">
+          <div style="flex-shrink:0;width:48px;height:48px;border-radius:12px;background:var(--golddim);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">地</div>
+          <div><h4 data-i18n="contact-address-label" style="font-family:'Sora';font-size:0.98rem;font-weight:700;margin-bottom:4px;color:var(--navy);">公司地址</h4><p data-i18n="contact-address" style="font-size:0.92rem;color:var(--text);">北京市密云区西田各庄镇雁密路99号601室</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:26px;">
+          <div style="flex-shrink:0;width:48px;height:48px;border-radius:12px;background:var(--golddim);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">电</div>
+          <div><h4 data-i18n="contact-phone-label" style="font-family:'Sora';font-size:0.98rem;font-weight:700;margin-bottom:4px;color:var(--navy);">联系电话</h4><p style="font-size:0.92rem;color:var(--text);">010-65028411</p></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:26px;">
+          <div style="flex-shrink:0;width:48px;height:48px;border-radius:12px;background:var(--golddim);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:700;">邮</div>
+          <div><h4 data-i18n="contact-email-label" style="font-family:'Sora';font-size:0.98rem;font-weight:700;margin-bottom:4px;color:var(--navy);">电子邮箱</h4><p style="font-size:0.92rem;"><a href="mailto:service@rukn.com" style="color:var(--gold);text-decoration:none;">service@rukn.com</a></p></div>
+        </div>
+        <div data-i18n="placeholder-1" style="width:100%;height:180px;background:repeating-linear-gradient(135deg,var(--bgalt),var(--bgalt) 12px,var(--bgsoft) 12px,var(--bgsoft) 24px);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.9rem;border:1px dashed var(--border);margin-bottom:18px;font-family:monospace;text-align:center;padding:0 20px;">项目展示 · 复杂油气藏三维地质模型</div>
+        <div data-i18n="placeholder-2" style="width:100%;height:180px;background:repeating-linear-gradient(135deg,var(--bgalt),var(--bgalt) 12px,var(--bgsoft) 12px,var(--bgsoft) 24px);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.9rem;border:1px dashed var(--border);font-family:monospace;text-align:center;padding:0 20px;">项目展示 · 中东及非洲资源与基建合作</div>
+      </div>
+      <div class="reveal" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:36px;box-shadow:0 10px 40px rgba(13,33,55,0.05);">
+        <h3 data-i18n="form-heading" style="font-family:'Sora';font-size:1.3rem;font-weight:700;margin-bottom:24px;color:var(--navy);">给我们留言</h3>
+        <form id="contactForm">
+          <div style="margin-bottom:18px;">
+            <label for="name" data-i18n="form-name" style="display:block;font-size:0.9rem;color:var(--text);margin-bottom:6px;">姓名</label>
+            <input type="text" id="name" data-i18n-placeholder="form-name-placeholder" placeholder="请输入您的姓名" required style="width:100%;padding:12px 16px;background:var(--bgalt);border:1px solid var(--border);border-radius:8px;color:var(--ink);font-size:0.95rem;font-family:inherit;" style-focus="outline:none;border-color:var(--gold);">
+          </div>
+          <div style="margin-bottom:18px;">
+            <label for="email" data-i18n="form-email" style="display:block;font-size:0.9rem;color:var(--text);margin-bottom:6px;">邮箱</label>
+            <input type="email" id="email" data-i18n-placeholder="form-email-placeholder" placeholder="请输入您的邮箱" required style="width:100%;padding:12px 16px;background:var(--bgalt);border:1px solid var(--border);border-radius:8px;color:var(--ink);font-size:0.95rem;font-family:inherit;" style-focus="outline:none;border-color:var(--gold);">
+          </div>
+          <div style="margin-bottom:18px;">
+            <label for="message" data-i18n="form-message" style="display:block;font-size:0.9rem;color:var(--text);margin-bottom:6px;">留言内容</label>
+            <textarea id="message" data-i18n-placeholder="form-message-placeholder" placeholder="请描述您的需求或问题..." required style="width:100%;padding:12px 16px;background:var(--bgalt);border:1px solid var(--border);border-radius:8px;color:var(--ink);font-size:0.95rem;font-family:inherit;min-height:120px;resize:vertical;" style-focus="outline:none;border-color:var(--gold);"></textarea>
+          </div>
+          <button type="submit" id="formBtn" data-i18n="form-send" style="width:100%;padding:14px;border:none;border-radius:40px;font-weight:700;font-size:1rem;cursor:pointer;background:var(--gold);color:#fff;transition:background .3s;" style-hover="background:#9a6f15;">发送留言</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:var(--navy);padding:40px clamp(20px,5vw,48px);">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="logo_v1.png" alt="基石智勘" style="height:34px;width:auto;filter:brightness(0) invert(1);opacity:0.92;">
+        <span data-i18n="footer-company" style="font-weight:600;font-size:0.95rem;color:#fff;">北京基石智勘科技有限公司</span>
+      </div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);text-align:right;">
+        <p data-i18n="footer-copyright">© 2024-2026 Rukn GeoExplore Technology limited company. All Rights Reserved.</p>
+        <p>京ICP备XXXXXXXX号 | <a href="mailto:service@rukn.com" style="color:rgba(255,255,255,0.82);text-decoration:none;">service@rukn.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="返回顶部" style="position:fixed;bottom:32px;right:32px;width:48px;height:48px;border-radius:50%;background:var(--navy);border:none;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(20px);transition:all .3s;z-index:999;box-shadow:0 8px 24px rgba(13,33,55,0.25);" style-hover="background:var(--gold);">↑</button>
+
+</div>
+
+<template id="__bundler_thumbnail"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#0d2137"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#b8861e" stroke-width="3"/><polygon points="50,36 62,43 62,57 50,64 38,57 38,43" fill="none" stroke="#3a7bd5" stroke-width="2.5"/><polygon points="50,46 56,50 50,54 44,50" fill="#b8861e"/></svg></template></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;zh&quot;,&quot;en&quot;],&quot;default&quot;:&quot;zh&quot;,&quot;tsType&quot;:&quot;'zh' | 'en'&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#b8861e&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heroAnimation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = document.getElementById('rukn-root');
+    const accent = this.props.accentColor;
+    if (root && accent) {
+      root.style.setProperty('--gold', accent);
+    }
+
+    const translations = {
+      zh: {
+        "nav-home":"首页","nav-about":"关于我们","nav-business":"技术开发","nav-mea":"中东及非洲","nav-advantage":"技术与服务","nav-process":"服务流程","nav-contact":"联系方式",
+        "hero-kicker":"AI · 能源 · 中东及非洲","hero-title":"基石智勘","hero-subtitle":"AI驱动 · 能源智慧开发 · 中东非洲商务技术","hero-rukn-meaning":"Rukn（رُكْن），阿拉伯语「基石、支柱」之意，承载我们坚实的承诺——「勘」，不止于能源资源的实地勘探，更是对市场的精准细致勘察。","hero-btn-services":"了解我们的服务","hero-btn-mea":"中东及非洲业务",
+        "about-kicker":"关于我们","about-title":"能源资源勘查与评估","about-subtitle":"人工智能时代 · 能源资源勘查与评估 · 高效开发技术服务","about-heading":"立足智能化升级风口，赋能传统能源开发提质增效",
+        "about-p1":"当前能源行业全面进入数字化、智能化、高效化转型新阶段。传统油气勘探开发模式面临复杂油气藏地质条件隐蔽、数据维度繁杂、人工建模精度有限等行业痛点。随着人工智能与大数据技术的快速迭代，AI 赋能已成为破解复杂油气藏勘探与高效开发难题的核心路径。",
+        "about-p2":"基石智勘精准聚焦 <strong style=\"color:var(--navy2)\">人工智能时代矿产资源勘查与精细化评估赛道</strong>，定位为「技术驱动型、场景落地型」的高端矿产资源评价服务商。核心团队具备国内外顶级矿业企业及研究机构一线实战经验，深度联动多所高校科研资源，打通地质勘探 × 矿床模型 × 人工智能 × 算法研发技术壁垒，为固体矿产、经济金属等领域提供资源精细化评估、储量动态分析与开发决策优化，助力客户降本、提质、增效。",
+        "about-p3":"公司始终秉持 <strong style=\"color:var(--navy2)\">「技术赋能、精准高效、务实共赢、长期深耕」</strong> 的核心服务理念，为油气行业高质量、低成本、精细化发展提供全新解决方案。",
+        "hex-ai":"AI","hex-oilfield":"油田","hex-data":"数据","hex-geology":"地质","hex-cornerstone":"矿产","hex-model":"模型","hex-algorithm":"算法","hex-explore":"勘查","hex-energy":"能源",
+        "mea-feature-kicker":"新增业务","mea-feature-stat-num":"非洲本土团队","mea-feature-stat-label":"扎根当地 · 强力运作 · 全链条赋能",
+        "about-heading-mea":"深耕中东及非洲市场，提供全链条商务与技术赋能",
+        "about-p4":"在中非合作迈向「产业链共兴」与「本地化运营」的新阶段，跨境投资与资源开发面临着信息壁垒、合规风险及文化差异等多重挑战。为此，我们全面拓展中东及非洲市场商务服务，依托 <strong style=\"color:var(--navy2)\">扎根当地的非洲本土团队强力运作</strong>，将技术服务与商务落地深度融合，为企业出海提供从前期调研到后期运营的一站式解决方案。",
+        "about-p5":"我们的中东及非洲业务涵盖四大核心领域：<strong style=\"color:var(--gold)\">精准市场调研</strong>（提供权威政策导航、产业数据及营商环境评估）、<strong style=\"color:var(--gold)\">深度商务合作</strong>（涵盖跨文化沟通、本地合规指导、招投标对接及属地化伙伴匹配）、<strong style=\"color:var(--gold)\">项目投资服务</strong>（从项目可研、风险防控到投融资对接的全周期陪跑），以及 <strong style=\"color:var(--gold)\">属地化技术支持</strong>（协助中国技术标准落地与本地技术团队培训）。",
+        "about-p6":"通过「技术输出 + 本土赋能」的创新模式，我们不仅是资源的勘探者，更是中非经贸合作的「陪跑者」。我们致力于消除信息鸿沟，降低跨境运营成本，助力客户在复杂多变的国际市场中精准把握商机，实现真正的务实共赢与长期深耕。",
+        "mea-link":"查看中东及非洲业务 →","mea-kicker":"中东及非洲 · MIDDLE EAST & AFRICA","mea-title":"中东及非洲商务技术服务","mea-subtitle":"扎根本土团队 · 技术输出 + 本土赋能 · 中非经贸合作的「陪跑者」",
+        "mea-area-1-title":"精准市场调研","mea-area-1-desc":"提供权威政策导航、产业数据及营商环境评估，助您看清市场全貌、把握机遇。",
+        "mea-area-2-title":"深度商务合作","mea-area-2-desc":"涵盖跨文化沟通、本地合规指导、招投标对接及属地化伙伴匹配。",
+        "mea-area-3-title":"项目投资服务","mea-area-3-desc":"从项目可研、风险防控到投融资对接的全周期陪跑。",
+        "mea-area-4-title":"属地化技术支持","mea-area-4-desc":"协助中国技术标准落地与本地技术团队培训。",
+        "mea-pill-1":"非洲本土团队强力运作","mea-pill-2":"技术输出 + 本土赋能","mea-pill-3":"出海全周期陪跑",
+        "business-kicker":"技术开发","business-title":"技术开发","business-subtitle":"覆盖油气勘探开发全流程 · 延伸矿业资源智能评估",
+        "biz-1-title":"能源资源智能化勘查","biz-1-desc":"油气领域，着重精细化评估与储量分析，运用 AI 技术对复杂油气藏进行精准勘查和资源评估。矿业领域突破传统地质找矿单一技术局限，打通地质勘探 × 矿床模型 × 人工智能 × 算法研发技术壁垒，为固体矿产、经济金属等领域提供资源精细化评估。",
+        "biz-2-title":"地质建模与数模优化","biz-2-desc":"既深耕复杂油气藏地质建模、油藏数值模拟等传统业务，构建高精度三维地质模型，精准预测开发动态；又协助客户将 AI 技术融入现有工作流程，推动业务流程智能化升级，提质增效。",
+        "biz-3-title":"实验室分析化验","biz-3-desc":"配备高压物性、岩心CT扫描、自动化孢粉分析、酸泡分析等全套大型实验设备，依托资深专业的实验技术人员，全面承接油气田、陆地煤层勘探开发领域岩心、油、水、气等样品检测分析工作，输出科学、严谨、权威的分析化验成果报告。",
+        "biz-4-title":"油田软件开发","biz-4-desc":"借助日新月异、功能日益强大的 AI 技术，专注落地油气勘探开发智能化方案定制，将 AI 与日常工作场景深度融合，打造部门或团队专属 AI 工具。为油田行业定制各种实用小软件、AI 助手和业务工具，开发快、部署简单、上手即用。无论项目大小，业务有需求，我们就做。",
+        "biz-5-title":"技术咨询","biz-5-desc":"油气技术咨询、项目联合研发、产学研技术合作落地，提供全流程技术指导与解决方案。",
+        "biz-6-title":"产学研合作","biz-6-desc":"深度联动高校科研团队，搭建「科研+实战」复合型技术平台，推动前沿技术成果在油气行业的产业化落地。",
+        "adv-kicker":"技术和服务优势","adv-title":"技术和服务优势","adv-subtitle":"技术开发硬实力 × 中东及非洲属地化服务 · 双轮驱动客户成功",
+        "adv-1-title":"一线实战技术优势","adv-1-desc":"核心团队具备海外顶级能源企业一线油气项目实操经验，深耕油气勘探开发、油藏数模、地质建模、矿业资源评估领域多年，实战落地能力突出。",
+        "adv-2-title":"技术融合优势","adv-2-desc":"打通地质专业 + 油藏工程 + 人工智能 + 算法研发技术壁垒，大幅提升复杂地质条件下油气资源勘查精度与开发效率。",
+        "adv-3-title":"属地化商务服务优势","adv-3-desc":"依托扎根当地的非洲本土团队强力运作，深谙政策法规、营商环境与文化差异，提供跨文化沟通、本地合规指导与属地化伙伴匹配。",
+        "adv-4-title":"全周期出海陪跑优势","adv-4-desc":"以「技术输出 + 本土赋能」模式，提供从市场调研、项目投资到落地运营的一站式陪跑，助力客户务实共赢、长期深耕。",
+        "proc-kicker":"服务流程","proc-title":"服务流程","proc-subtitle":"技术开发与商务服务双线并行 · 全流程精细化陪跑","proc-track-1":"技术开发流程","proc-track-2":"中东及非洲商务服务流程",
+        "proc-1-title":"需求沟通","proc-1-desc":"深入了解客户痛点与技术需求，明确项目目标与范围","proc-2-title":"方案设计","proc-2-desc":"定制化技术方案设计，结合 AI 与地质工程制定最优路径","proc-3-title":"技术研发","proc-3-desc":"模型构建、算法开发、软件定制，分阶段迭代交付","proc-4-title":"测试验证","proc-4-desc":"基于真实数据验证，确保模型精度与方案可行性","proc-5-title":"交付支持","proc-5-desc":"成果交付、培训指导、持续优化与长期技术支持","proc-b1-title":"需求对接","proc-b1-desc":"明确出海目标、资源诉求与合作意向，建立沟通机制","proc-b2-title":"市场调研","proc-b2-desc":"权威政策导航、产业数据与营商环境评估，看清市场全貌","proc-b3-title":"商务对接","proc-b3-desc":"跨文化沟通、本地合规指导、招投标对接与属地化伙伴匹配","proc-b4-title":"投资落地","proc-b4-desc":"项目可研、风险防控与投融资对接，推动项目稳健落地","proc-b5-title":"运营陪跑","proc-b5-desc":"属地化技术支持与本地团队培训，长期陪跑共赢",
+        "contact-kicker":"联系方式","contact-title":"联系方式","contact-subtitle":"期待与您的合作 · 共创智慧能源勘查新未来","contact-address-label":"公司地址","contact-address":"北京市密云区西田各庄镇雁密路99号601室","contact-phone-label":"联系电话","contact-email-label":"电子邮箱","placeholder-1":"项目展示 · 复杂油气藏三维地质模型","placeholder-2":"项目展示 · 中东及非洲资源与基建合作",
+        "form-heading":"给我们留言","form-name":"姓名","form-email":"邮箱","form-message":"留言内容","form-send":"发送留言","form-name-placeholder":"请输入您的姓名","form-email-placeholder":"请输入您的邮箱","form-message-placeholder":"请描述您的需求或问题...","form-success":"已收到您的留言！",
+        "footer-company":"北京基石智勘科技有限公司","footer-copyright":"© 2024-2026 Rukn GeoExplore Technology limited company. All Rights Reserved.",
+        "lang-switch-to":"EN"
+      },
+      en: {
+        "nav-home":"Home","nav-about":"About","nav-business":"Tech Dev","nav-mea":"MEA","nav-advantage":"Advantages","nav-process":"Process","nav-contact":"Contact",
+        "hero-kicker":"AI · Energy · Middle East & Africa","hero-title":"Rukn GeoExplore","hero-subtitle":"AI-Driven · Smart Energy Development · MEA Business & Tech","hero-rukn-meaning":"Rukn (رُكْن) — Arabic for \"pillar\" and \"cornerstone,\" carrying our steadfast commitment: to explore not only energy and resources in the field, but also markets — with precision and care.","hero-btn-services":"Explore Our Services","hero-btn-mea":"Middle East & Africa",
+        "about-kicker":"About Us","about-title":"Energy Resource Exploration & Assessment","about-subtitle":"AI-Era Energy Resource Exploration & Assessment · Efficient Development","about-heading":"Empowering Traditional Energy Development Through Intelligent Upgrades",
+        "about-p1":"The energy industry is undergoing a full-scale transformation toward digitalization, intelligence, and efficiency. Traditional oil and gas exploration faces challenges such as complex reservoir conditions, multi-dimensional data complexity, and limited manual modeling accuracy. As AI and big data technologies rapidly evolve, AI empowerment has become the core pathway to solving the challenges of complex reservoir exploration and efficient development.",
+        "about-p2":"Rukn GeoExplore precisely targets the <strong style=\"color:var(--navy2)\">AI-era mineral resource exploration and refined assessment sector</strong>, positioning itself as a 'technology-driven, implementation-oriented' high-end mineral resource evaluation provider. Our core team brings frontline experience from top-tier domestic and international mining companies and research institutions, coupled with deep university research partnerships, integrating Geological Exploration × Ore Deposit Modeling × AI × Algorithm R&D to deliver refined resource assessment, dynamic reserve analysis, and development decision optimization for solid minerals and economic metals — helping clients reduce costs, improve quality, and enhance efficiency.",
+        "about-p3":"The company upholds the core philosophy of <strong style=\"color:var(--navy2)\">'Technology Empowerment, Precision & Efficiency, Pragmatic Win-Win, Long-Term Commitment'</strong>, delivering innovative solutions for high-quality, low-cost, refined development in the oil and gas industry.",
+        "hex-ai":"AI","hex-oilfield":"Oilfield","hex-data":"Data","hex-geology":"Geology","hex-cornerstone":"Minerals","hex-model":"Model","hex-algorithm":"Algorithm","hex-explore":"Explore","hex-energy":"Energy",
+        "mea-feature-kicker":"New Service","mea-feature-stat-num":"Local African Team","mea-feature-stat-label":"Rooted locally · Strong execution · Full-chain enablement",
+        "about-heading-mea":"Full-Chain Business & Tech Enablement Across the Middle East & Africa",
+        "about-p4":"As China-Africa cooperation advances toward 'industrial-chain co-prosperity' and 'localized operations,' cross-border investment and resource development face barriers of information asymmetry, compliance risk, and cultural difference. We have fully expanded our Middle East & Africa business services, powered by a <strong style=\"color:var(--navy2)\">strong, locally-rooted African team</strong>, deeply fusing technical services with on-the-ground business execution to deliver one-stop solutions for enterprises going global — from early-stage research to long-term operations.",
+        "about-p5":"Our Middle East & Africa practice spans four core areas: <strong style=\"color:var(--gold)\">Precise Market Research</strong> (authoritative policy navigation, industry data, and business-environment assessment), <strong style=\"color:var(--gold)\">In-Depth Business Cooperation</strong> (cross-cultural communication, local compliance guidance, bid/tender liaison, and localized partner matching), <strong style=\"color:var(--gold)\">Project Investment Services</strong> (full-cycle support from feasibility study and risk control to investment and financing), and <strong style=\"color:var(--gold)\">Localized Technical Support</strong> (helping Chinese technical standards take root and training local technical teams).",
+        "about-p6":"Through an innovative 'technology export + local empowerment' model, we are not only explorers of resources but 'co-runners' of China-Africa economic and trade cooperation. We work to close information gaps, lower cross-border operating costs, and help clients precisely seize opportunities in complex, fast-changing international markets — achieving pragmatic, lasting win-win partnerships.",
+        "mea-link":"Explore MEA Services →","mea-kicker":"Middle East & Africa","mea-title":"Middle East & Africa Business & Technology Services","mea-subtitle":"Locally-Rooted Teams · Tech Export + Local Empowerment · Co-Runner of China-Africa Trade",
+        "mea-area-1-title":"Precise Market Research","mea-area-1-desc":"Authoritative policy navigation, industry data, and business-environment assessment — see the full market picture and seize opportunities.",
+        "mea-area-2-title":"In-Depth Business Cooperation","mea-area-2-desc":"Cross-cultural communication, local compliance guidance, bid/tender liaison, and localized partner matching.",
+        "mea-area-3-title":"Project Investment Services","mea-area-3-desc":"Full-cycle support from feasibility study and risk control to investment and financing.",
+        "mea-area-4-title":"Localized Technical Support","mea-area-4-desc":"Helping Chinese technical standards take root and training local technical teams.",
+        "mea-pill-1":"Strong locally-rooted African team","mea-pill-2":"Tech export + local empowerment","mea-pill-3":"Full-cycle go-global support",
+        "business-kicker":"Technology Development","business-title":"Technology Development","business-subtitle":"Full-Cycle Oil & Gas Exploration · Extended Mining Resource Assessment",
+        "biz-1-title":"Intelligent Exploration & Assessment","biz-1-desc":"In oil and gas, we focus on refined assessment and reserve analysis, leveraging AI for accurate exploration and evaluation of complex reservoirs. In mining, we break through single-technique prospecting limits, integrating Geological Exploration × Ore Deposit Modeling × AI × Algorithm R&D for refined resource assessment of solid minerals and economic metals.",
+        "biz-2-title":"Geological Modeling & Simulation","biz-2-desc":"From complex reservoir geological modeling and numerical simulation to helping clients integrate AI into existing workflows — we deliver high-precision 3D models that accurately predict development dynamics while driving intelligent process upgrades for better quality and efficiency.",
+        "biz-3-title":"Laboratory Analysis & Testing","biz-3-desc":"Equipped with a full suite of major instruments — high-pressure PVT analysis, core CT scanning, automated palynological analysis, acid-digestion analysis and more — and backed by senior specialists, we provide comprehensive testing of core, oil, water, and gas samples for oilfield and onshore coalbed exploration, delivering rigorous, authoritative reports.",
+        "biz-4-title":"Oilfield Software Development","biz-4-desc":"Leveraging rapidly evolving AI, we deliver tailored intelligent solutions for oil and gas exploration, deeply integrating AI into daily workflows to build dedicated 'small but effective' AI tools for teams. We custom-develop practical tools, AI assistants, and business apps — fast to build, simple to deploy, ready to use. No project too big or small.",
+        "biz-5-title":"Technical Consulting","biz-5-desc":"Oil & gas technical consulting, joint R&D projects, and industry-academia collaboration. Full-process technical guidance and solution delivery.",
+        "biz-6-title":"Industry-Academia Cooperation","biz-6-desc":"Deep collaboration with university research teams, building a 'research + practice' composite technical platform to industrialize cutting-edge technologies in the oil and gas sector.",
+        "adv-kicker":"Strengths","adv-title":"Technical & Service Advantages","adv-subtitle":"Technology Development × Localized MEA Service — a dual engine for client success",
+        "adv-1-title":"Frontline Technical Expertise","adv-1-desc":"Our core team has hands-on experience from top-tier global energy companies, with years of expertise in oil and gas exploration, reservoir simulation, geological modeling, and mining resource assessment.",
+        "adv-2-title":"Multi-Disciplinary Integration","adv-2-desc":"Breaking through the barriers between Geology + Reservoir Engineering + AI + Algorithm R&D, significantly improving exploration accuracy and development efficiency under complex geological conditions.",
+        "adv-3-title":"Localized Business Service","adv-3-desc":"Powered by a strong, locally-rooted African team that deeply understands local policy, business environment, and culture — delivering cross-cultural communication, local compliance guidance, and localized partner matching.",
+        "adv-4-title":"Full-Cycle Go-Global Support","adv-4-desc":"With a 'technology export + local empowerment' model, we provide one-stop support from market research and project investment to on-the-ground operations — driving pragmatic, lasting win-win partnerships.",
+        "proc-kicker":"Process","proc-title":"Service Process","proc-subtitle":"Technology Development & Business Service in parallel · Full-cycle refined support","proc-track-1":"Technology Development Track","proc-track-2":"Middle East & Africa Business Service Track",
+        "proc-1-title":"Requirements","proc-1-desc":"In-depth understanding of client challenges and technical needs, clearly defining project objectives and scope.","proc-2-title":"Solution Design","proc-2-desc":"Customized technical solution design, combining AI with geoscience engineering for the optimal path.","proc-3-title":"Development","proc-3-desc":"Model construction, algorithm development, software customization — delivered iteratively in phases.","proc-4-title":"Validation","proc-4-desc":"Validation against real-world data to ensure model accuracy and solution feasibility.","proc-5-title":"Delivery & Support","proc-5-desc":"Results delivery, training, ongoing optimization, and long-term technical support.","proc-b1-title":"Needs Alignment","proc-b1-desc":"Define go-global goals, resource needs, and cooperation intent; establish communication.","proc-b2-title":"Market Research","proc-b2-desc":"Authoritative policy navigation, industry data, and business-environment assessment.","proc-b3-title":"Business & Compliance","proc-b3-desc":"Cross-cultural communication, local compliance, bid/tender liaison, and partner matching.","proc-b4-title":"Investment & Execution","proc-b4-desc":"Feasibility study, risk control, and investment/financing — driving projects on the ground.","proc-b5-title":"Operations Support","proc-b5-desc":"Localized technical support and local-team training, with long-term accompaniment.",
+        "contact-kicker":"Contact","contact-title":"Contact Us","contact-subtitle":"Looking Forward to Working with You","contact-address-label":"Address","contact-address":"Room 601, No. 99 Yanmi Road, Xitiangezhang Town, Miyun District, Beijing","contact-phone-label":"Phone","contact-email-label":"Email","placeholder-1":"Project Showcase · 3D Reservoir Geological Model","placeholder-2":"Project Showcase · MEA Resource & Infrastructure Cooperation",
+        "form-heading":"Send Us a Message","form-name":"Name","form-email":"Email","form-message":"Message","form-send":"Send","form-name-placeholder":"Enter your name","form-email-placeholder":"Enter your email","form-message-placeholder":"Describe your needs or questions...","form-success":"Submitted! We will contact you shortly.",
+        "footer-company":"Rukn GeoExplore Technology Limited Company","footer-copyright":"© 2024-2026 Rukn GeoExplore Technology Limited Company. All Rights Reserved.",
+        "lang-switch-to":"中文"
+      }
+    };
+    this.translations = translations;
+
+    let currentLang = localStorage.getItem('lang') || this.props.defaultLang || 'zh';
+
+    const applyLanguage = (lang) => {
+      const t = translations[lang];
+      if (!t) return;
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (t[k] !== undefined) el.textContent = t[k];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const k = el.getAttribute('data-i18n-html');
+        if (t[k] !== undefined) el.innerHTML = t[k];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const k = el.getAttribute('data-i18n-placeholder');
+        if (t[k] !== undefined) el.setAttribute('placeholder', t[k]);
+      });
+      const sw = document.getElementById('langSwitcher');
+      if (sw) {
+        sw.textContent = t['lang-switch-to'];
+        sw.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换到中文');
+      }
+      currentLang = lang;
+      this.currentLang = lang;
+      localStorage.setItem('lang', lang);
+    };
+    this.currentLang = currentLang;
+    applyLanguage(currentLang);
+
+    const sw = document.getElementById('langSwitcher');
+    if (sw) sw.addEventListener('click', () => applyLanguage(currentLang === 'zh' ? 'en' : 'zh'));
+
+    const navbar = document.getElementById('navbar');
+    const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
+    const sections = navLinks.map(a => document.getElementById(a.getAttribute('data-nav'))).filter(Boolean);
+    const backToTop = document.getElementById('backToTop');
+    const navToggle = document.getElementById('navToggle');
+    const navLinksC = document.getElementById('navLinks');
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (navbar) navbar.style.boxShadow = y > 60 ? '0 2px 24px rgba(13,33,55,0.1)' : 'none';
+      let cur = '';
+      sections.forEach(s => {
+        const top = s.offsetTop - 120;
+        if (y >= top && y < top + s.offsetHeight) cur = s.id;
+      });
+      navLinks.forEach(a => {
+        const on = a.getAttribute('data-nav') === cur;
+        a.style.color = on ? 'var(--gold)' : (a.getAttribute('data-nav') === 'mea' ? 'var(--text)' : 'var(--text)');
+        if (on) a.style.color = 'var(--gold)';
+      });
+      if (backToTop) {
+        if (y > 600) { backToTop.style.opacity = '1'; backToTop.style.visibility = 'visible'; backToTop.style.transform = 'translateY(0)'; }
+        else { backToTop.style.opacity = '0'; backToTop.style.visibility = 'hidden'; backToTop.style.transform = 'translateY(20px)'; }
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    if (navToggle && navLinksC) {
+      navToggle.addEventListener('click', () => navLinksC.classList.toggle('open'));
+      navLinks.forEach(a => a.addEventListener('click', () => navLinksC.classList.remove('open')));
+    }
+    if (backToTop) backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    if (this.props.heroAnimation !== false) {
+      const canvas = document.getElementById('heroCanvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height, particles = [];
+        const colors = ['26,58,92', '58,123,213', '184,134,30'];
+        const resize = () => { width = canvas.width = canvas.parentElement.offsetWidth; height = canvas.height = canvas.parentElement.offsetHeight; };
+        resize();
+        window.addEventListener('resize', resize);
+        class P {
+          constructor() { this.reset(); }
+          reset() { this.x = Math.random()*width; this.y = Math.random()*height; this.size = Math.random()*1.6+0.6; this.sx = (Math.random()-0.5)*0.5; this.sy = (Math.random()-0.5)*0.5; this.o = Math.random()*0.28+0.08; this.c = colors[Math.floor(Math.random()*colors.length)]; }
+          update() { this.x += this.sx; this.y += this.sy; if (this.x<0||this.x>width||this.y<0||this.y>height) this.reset(); }
+          draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle = 'rgba('+this.c+','+this.o+')'; ctx.fill(); }
+        }
+        for (let i=0;i<90;i++) particles.push(new P());
+        const lines = () => {
+          const md = 130;
+          for (let i=0;i<particles.length;i++) for (let j=i+1;j<particles.length;j++) {
+            const dx = particles[i].x-particles[j].x, dy = particles[i].y-particles[j].y, d = Math.sqrt(dx*dx+dy*dy);
+            if (d<md) { ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.strokeStyle = 'rgba(26,58,92,'+((1-d/md)*0.1)+')'; ctx.lineWidth = 0.5; ctx.stroke(); }
+          }
+        };
+        const animate = () => { ctx.clearRect(0,0,width,height); particles.forEach(p=>{p.update();p.draw();}); lines(); this._raf = requestAnimationFrame(animate); };
+        animate();
+      }
+    }
+
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('formBtn');
+        const orig = btn.textContent;
+        btn.textContent = this.translations[this.currentLang]['form-success'];
+        btn.disabled = true; btn.style.background = '#16a34a';
+        setTimeout(() => { btn.textContent = orig; btn.disabled = false; btn.style.background = ''; form.reset(); }, 3000);
+      });
+    }
+  }
+
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
